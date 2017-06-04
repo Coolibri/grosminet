@@ -15,11 +15,12 @@
         {{ player.name }}
       </li>
     </ul>
-    <button class="btn btn-lg btn-primary" id="start-game-btn" v-on:click="enterTheGame()">Demarrer le jeu</button>
+    <button class="btn btn-lg btn-primary" id="start-game-btn" v-on:click="enterTheGame()"></button>
   </div>
 </template>
 
 <script>
+  import DataPasser from '@/dataPasser'
   export default {
     name: 'start-page',
     data: function () {
@@ -36,9 +37,10 @@
         }
       },
       enterTheGame: function () {
+        console.log('from start page', this.players)
+        DataPasser.setData(this.players)
         this.$router.push({
-          path: 'game',
-          params: {extPlayers: this.players}
+          path: 'game'
         })
       }
     }
