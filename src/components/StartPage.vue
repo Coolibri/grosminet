@@ -1,5 +1,6 @@
 <template>
   <div class="start-page">
+    <h1>Coolibri - prototype 1</h1>
     <form>
       <input
         type="text"
