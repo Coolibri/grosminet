@@ -37,6 +37,7 @@
         choicesCount: 0,
         currentChoices: [],
         choicesSelector: [],
+        choicesHistory: [],
         nextMessage: '',
         messages: [],
         global: 50
@@ -51,28 +52,39 @@
       this.currentChoices = TreeLoader.getTreeRoot().choices
     },
     methods: {
-      playerMkChoice: function (pName, choiceNb) {
-        this.choicesSelector.push(choiceNb)
+      playerMkChoice: function (pName, choiceNb, choice) {
+        this.choicesSelector.push({from: pName, choice: choice})
         this.choicesCount++
         if (this.choicesCount === this.players.length) {
           let count = [0, 0, 0]
           for (let i = 0; i < this.choicesSelector.length; i++) {
-            count[this.choicesSelector[i]]++
+            count[this.choicesSelector[i].choice]++
           }
+
           this.nextMessage += this.currentChoices[0].value(count[0])
           this.nextMessage += this.currentChoices[1].value(count[1])
           this.nextMessage += this.currentChoices[2].value(count[2])
 
           let selected = count.indexOf(Math.max(...count))
+
+          this.choicesHistory.push({
+            selected: selected,
+            count: count,
+            selector: this.choicesSelector
+          })
+
           TreeLoader.setNextTurn(selected)
           this.messages.push({
             text: this.nextMessage + TreeLoader.getCurrentTurn().text
           })
-          this.currentChoices = TreeLoader.getCurrentTurn().choices
-          this.choicesCount = 0
-          this.nextMessage = ''
-          this.choicesSelector = []
+          this.resetTurn()
         }
+      },
+      resetTurn: function () {
+        this.currentChoices = TreeLoader.getCurrentTurn().choices
+        this.choicesCount = 0
+        this.nextMessage = ''
+        this.choicesSelector = []
       }
     }
   }
