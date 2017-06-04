@@ -1,5 +1,5 @@
 <template>
-  <div class="player">
+  <div class="player" :class="{unactive: !active}">
     <h4>{{ player.name }}</h4>
     <state :state="state"></state>
     <div>
@@ -29,18 +29,31 @@
           waste: 50,
           energy: 50,
           water: 50
-        }
+        },
+        active: true
       }
     },
-    watcher: {
+    watch: {
       name: function () {
         return this.player.name
+      },
+      choices: function () {
+        this.active = true
       }
     },
     methods: {
       mkChoice: function (pName, choiceNb) {
-        this.$emit('choice', pName, choiceNb)
+        if (this.active) {
+          this.$emit('choice', pName, choiceNb)
+          this.active = false
+        }
       }
     }
   }
 </script>
+
+<style scoped>
+  .unactive {
+    background: lightgrey;
+  }
+</style>

@@ -34,6 +34,7 @@
         },
         choicesCount: 0,
         currentChoices: [],
+        nextMessage: '',
         messages: [],
         global: 50
       }
@@ -52,14 +53,19 @@
     },
     methods: {
       playerMkChoice: function (pName, choiceNb) {
-        this.messages.push({
-          text: pName + ' make the ' + this.currentChoices[choiceNb] + ' choice'
-        })
+        this.nextMessage += pName + ' make the ' + this.currentChoices[choiceNb] + ' choice. '
         this.choicesCount++
         if (this.choicesCount === this.players.length) {
           this.messages.push({
-            text: 'every body won !'
+            text: this.nextMessage + ' every body won ! but'
           })
+          this.currentChoices = [
+            'beer',
+            'water',
+            'test'
+          ]
+          this.choicesCount = 0
+          this.nextMessage = ''
         }
       }
     }
