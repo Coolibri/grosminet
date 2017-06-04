@@ -16,6 +16,8 @@
   import Player from './Player'
   import Messages from './Messages'
   import DataPasser from '@/dataPasser'
+  import TreeLoader from '@/tree/treeLoader'
+
   export default {
     components: {
       Messages,
@@ -34,6 +36,7 @@
         },
         choicesCount: 0,
         currentChoices: [],
+        choicesSelector: [],
         nextMessage: '',
         messages: [],
         global: 50
@@ -43,29 +46,32 @@
       this.players = DataPasser.getData()
       // start the game !
       this.messages.push({
-        text: 'Bienvenue sur votre planète, pb de surpopulation et donc de famine, que faire ?'
+        text: TreeLoader.getTreeRoot().text
       })
-      this.currentChoices = [
-        'engrais',
-        'OGM',
-        'local'
-      ]
+      this.currentChoices = TreeLoader.getTreeRoot().choices
     },
     methods: {
       playerMkChoice: function (pName, choiceNb) {
-        this.nextMessage += pName + ' make the ' + this.currentChoices[choiceNb] + ' choice. '
+        this.choicesSelector.push(choiceNb)
         this.choicesCount++
         if (this.choicesCount === this.players.length) {
+          let count = [0, 0, 0]
+          for (let i = 0; i < this.choicesSelector.length; i++) {
+            count[this.choicesSelector[i]]++
+          }
+          this.nextMessage += this.currentChoices[0].value(count[0])
+          this.nextMessage += this.currentChoices[1].value(count[1])
+          this.nextMessage += this.currentChoices[2].value(count[2])
+
+          let selected = count.indexOf(Math.max(...count))
+          TreeLoader.setNextTurn(selected)
           this.messages.push({
-            text: this.nextMessage + ' every body won ! but'
+            text: this.nextMessage + TreeLoader.getCurrentTurn().text
           })
-          this.currentChoices = [
-            'beer',
-            'water',
-            'test'
-          ]
+          this.currentChoices = TreeLoader.getCurrentTurn().choices
           this.choicesCount = 0
           this.nextMessage = ''
+          this.choicesSelector = []
         }
       }
     }

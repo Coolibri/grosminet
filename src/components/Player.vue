@@ -3,9 +3,9 @@
     <h4>{{ player.name }}</h4>
     <state :state="state"></state>
     <div>
-      <div v-on:click="mkChoice(player.name,0)">{{ choices[0] }}</div>
-      <div v-on:click="mkChoice(player.name,1)">{{ choices[1] }}</div>
-      <div v-on:click="mkChoice(player.name,2)">{{ choices[2] }}</div>
+      <div v-on:click="mkChoice(player.name,0)">{{ choices[0].label }}</div>
+      <div v-on:click="mkChoice(player.name,1)">{{ choices[1].label }}</div>
+      <div v-on:click="mkChoice(player.name,2)">{{ choices[2].label }}</div>
     </div>
 
   </div>
