@@ -1,7 +1,12 @@
 <template>
-  <div class="player">
+  <div class="player" :class="{unactive: !active}">
     <h4>{{ player.name }}</h4>
     <state :state="state"></state>
+    <div>
+      <div v-on:click="mkChoice(player.name,0)">{{ choices[0] }}</div>
+      <div v-on:click="mkChoice(player.name,1)">{{ choices[1] }}</div>
+      <div v-on:click="mkChoice(player.name,2)">{{ choices[2] }}</div>
+    </div>
 
   </div>
 </template>
@@ -24,13 +29,31 @@
           waste: 50,
           energy: 50,
           water: 50
-        }
+        },
+        active: true
       }
     },
-    watcher: {
+    watch: {
       name: function () {
         return this.player.name
+      },
+      choices: function () {
+        this.active = true
+      }
+    },
+    methods: {
+      mkChoice: function (pName, choiceNb) {
+        if (this.active) {
+          this.$emit('choice', pName, choiceNb)
+          this.active = false
+        }
       }
     }
   }
 </script>
+
+<style scoped>
+  .unactive {
+    background: lightgrey;
+  }
+</style>

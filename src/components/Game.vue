@@ -2,10 +2,11 @@
   <div class="game">
     <planet-state :state="state" :global="global"></planet-state>
 
-    <messages class="messages"></messages>
+    <messages :messages="messages" class="messages"></messages>
 
     <div class="players">
-      <player v-for="player in players" :player="player" :key="player.name"></player>
+      <player @choice="playerMkChoice" :choices="currentChoices" v-for="player in players" :player="player"
+              :key="player.name"></player>
     </div>
   </div>
 </template>
@@ -31,11 +32,42 @@
           energy: 50,
           food: 50
         },
+        choicesCount: 0,
+        currentChoices: [],
+        nextMessage: '',
+        messages: [],
         global: 50
       }
     },
     created: function () {
       this.players = DataPasser.getData()
+      // start the game !
+      this.messages.push({
+        text: 'Bienvenue sur votre planète, pb de surpopulation et donc de famine, que faire ?'
+      })
+      this.currentChoices = [
+        'engrais',
+        'OGM',
+        'local'
+      ]
+    },
+    methods: {
+      playerMkChoice: function (pName, choiceNb) {
+        this.nextMessage += pName + ' make the ' + this.currentChoices[choiceNb] + ' choice. '
+        this.choicesCount++
+        if (this.choicesCount === this.players.length) {
+          this.messages.push({
+            text: this.nextMessage + ' every body won ! but'
+          })
+          this.currentChoices = [
+            'beer',
+            'water',
+            'test'
+          ]
+          this.choicesCount = 0
+          this.nextMessage = ''
+        }
+      }
     }
   }
 </script>
