@@ -2,7 +2,7 @@
   <div class="game">
     <planet-state :state="state" :global="global"></planet-state>
 
-    <messages class="messages"></messages>
+    <messages :messages="messages" class="messages"></messages>
 
     <div class="players">
       <player v-for="player in players" :player="player" :key="player.name"></player>
@@ -31,6 +31,7 @@
           energy: 50,
           food: 50
         },
+        messages: [],
         global: 50
       }
     },
