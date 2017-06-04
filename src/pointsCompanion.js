@@ -2,10 +2,12 @@ export default {
   /**
    * calc the global poucentage of planet state according 4 lasts choices.
    *
-   * @param globalHistory
-   * @return int in pourcentage
+   * @param nbPlayer.
+   * @param currentState.
+   * @param globalHistory.
+   * @return int in pourcentage.
    */
-  calcGlobal: function (globalHistory) {
+  calcGlobal: function (nbPlayer, currentState, globalHistory) {
 
   },
 
@@ -30,10 +32,29 @@ export default {
 
   /**
    * compute global state acccording to 4 lasts choices
-   * @param globalHistory
+   *
+   * @param nbPlayer.
+   * @param currentState.
+   * @param globalHistory.
    * @return state of four elements
    */
-  calcGlobalState: function (globalHistory) {
-
+  calcGlobalState: function (nbPlayer, currentState, globalHistory) {
+    const state = JSON.parse(JSON.stringify(currentState)) // hard clone
+    for (let i = 0; i < 4 && globalHistory.length - i !== 0; i++) {
+      for (let j = 0; j < 3; j++) {
+        state.food += parseInt((parseFloat(globalHistory[i].count[j])) * parseFloat(globalHistory[i].choices[j].points.food.value) * parseFloat(globalHistory[i].choices[j].points.food.turns[3 - i]))
+      }
+      for (let j = 0; j < 3; j++) {
+        state.waste += parseInt((parseFloat(globalHistory[i].count[j])) * parseFloat(globalHistory[i].choices[j].points.waste.value) * parseFloat(globalHistory[i].choices[j].points.waste.turns[3 - i]))
+      }
+      for (let j = 0; j < 3; j++) {
+        state.water += parseInt((parseFloat(globalHistory[i].count[j])) * parseFloat(globalHistory[i].choices[j].points.water.value) * parseFloat(globalHistory[i].choices[j].points.water.turns[3 - i]))
+      }
+      for (let j = 0; j < 3; j++) {
+        state.energy += parseInt((parseFloat(globalHistory[i].count[j])) * parseFloat(globalHistory[i].choices[j].points.energy.value) * parseFloat(globalHistory[i].choices[j].points.energy.turns[3 - i]))
+      }
+    }
+    console.log('return that state', state)
+    return state
   }
 }

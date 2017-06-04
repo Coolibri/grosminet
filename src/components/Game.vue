@@ -17,6 +17,7 @@
   import Messages from './Messages'
   import DataPasser from '@/dataPasser'
   import TreeLoader from '@/tree/treeLoader'
+  import PointsCompanion from '@/pointsCompanion'
 
   export default {
     components: {
@@ -53,12 +54,12 @@
     },
     methods: {
       playerMkChoice: function (pName, choiceNb, choice) {
-        this.choicesSelector.push({from: pName, choice: choice})
+        this.choicesSelector.push({from: pName, choiceNb: choiceNb, choice: choice})
         this.choicesCount++
         if (this.choicesCount === this.players.length) {
           let count = [0, 0, 0]
           for (let i = 0; i < this.choicesSelector.length; i++) {
-            count[this.choicesSelector[i].choice]++
+            count[this.choicesSelector[i].choiceNb]++
           }
 
           this.nextMessage += this.currentChoices[0].value(count[0])
@@ -69,9 +70,15 @@
 
           this.choicesHistory.push({
             selected: selected,
-            count: count,
+            count: JSON.parse(JSON.stringify(count)),
+            choices: this.currentChoices,
             selector: this.choicesSelector
           })
+
+          this.state = PointsCompanion.calcGlobalState(
+            this.players.length,
+            this.state,
+            this.choicesHistory)
 
           TreeLoader.setNextTurn(selected)
           this.messages.push({
