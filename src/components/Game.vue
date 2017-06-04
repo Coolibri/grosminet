@@ -14,6 +14,7 @@
   import PlanetState from './PlanetState'
   import Player from './Player'
   import Messages from './Messages'
+  import DataPasser from '@/dataPasser'
   export default {
     components: {
       Messages,
@@ -23,11 +24,7 @@
     name: 'Game',
     data: function () {
       return {
-        players: [
-          {name: 'patrick'},
-          {name: 'castor'},
-          {name: 'hamed'}
-        ],
+        players: [],
         state: {
           waste: 50,
           water: 50,
@@ -36,6 +33,9 @@
         },
         global: 50
       }
+    },
+    created: function () {
+      this.players = DataPasser.getData()
     }
   }
 </script>
