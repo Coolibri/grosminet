@@ -80,6 +80,12 @@
             this.state,
             this.choicesHistory)
 
+          this.global = PointsCompanion.calcGlobal(
+            this.players.length,
+            this.global,
+            this.choicesHistory
+          )
+
           TreeLoader.setNextTurn(selected)
           this.messages.push({
             text: this.nextMessage + TreeLoader.getCurrentTurn().text

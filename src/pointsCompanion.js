@@ -3,12 +3,28 @@ export default {
    * calc the global poucentage of planet state according 4 lasts choices.
    *
    * @param nbPlayer.
-   * @param currentState.
+   * @param currentGlobal.
    * @param globalHistory.
    * @return int in pourcentage.
    */
-  calcGlobal: function (nbPlayer, currentState, globalHistory) {
+  calcGlobal: function (nbPlayer, currentGlobal, globalHistory) {
+    let global = currentGlobal
+    for (let i = 0; i < 4 && globalHistory.length - i !== 0; i++) {
+      for (let j = 0; j < 3; j++) {
+        global += parseInt((parseFloat(globalHistory[i].count[j])) * parseFloat(globalHistory[i].choices[j].points.food.value) * parseFloat(globalHistory[i].choices[j].points.food.turns[3 - i]))
+      }
+      for (let j = 0; j < 3; j++) {
+        global += parseInt((parseFloat(globalHistory[i].count[j])) * parseFloat(globalHistory[i].choices[j].points.waste.value) * parseFloat(globalHistory[i].choices[j].points.waste.turns[3 - i]))
+      }
+      for (let j = 0; j < 3; j++) {
+        global += parseInt((parseFloat(globalHistory[i].count[j])) * parseFloat(globalHistory[i].choices[j].points.water.value) * parseFloat(globalHistory[i].choices[j].points.water.turns[3 - i]))
+      }
+      for (let j = 0; j < 3; j++) {
+        global += parseInt((parseFloat(globalHistory[i].count[j])) * parseFloat(globalHistory[i].choices[j].points.energy.value) * parseFloat(globalHistory[i].choices[j].points.energy.turns[3 - i]))
+      }
+    }
 
+    return global
   },
 
   /**
@@ -54,7 +70,7 @@ export default {
         state.energy += parseInt((parseFloat(globalHistory[i].count[j])) * parseFloat(globalHistory[i].choices[j].points.energy.value) * parseFloat(globalHistory[i].choices[j].points.energy.turns[3 - i]))
       }
     }
-    console.log('return that state', state)
+
     return state
   }
 }
