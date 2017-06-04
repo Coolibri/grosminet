@@ -13,6 +13,7 @@
 
 <script>
   import State from './State'
+  import PointsCompanion from '@/pointsCompanion'
   export default {
     components: {State},
     name: 'player',
@@ -38,12 +39,14 @@
         return this.player.name
       },
       choices: function () {
+        this.state = PointsCompanion.calcPlayerState(this.state, this.history)
         this.active = true
       }
     },
     methods: {
       mkChoice: function (pName, choiceNb, choice) {
         if (this.active) {
+          console.log('push that into history', choice)
           this.history.push(choice)
           this.$emit('choice', pName, choiceNb, choice)
           this.active = false
