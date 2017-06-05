@@ -1,7 +1,7 @@
 <template>
   <div class="start-page">
     <h1>Coolibri - prototype 1</h1>
-    <form>
+    <form v-on:submit.prevent="true;">
       <input
         type="text"
         v-model="playerName"
@@ -16,7 +16,7 @@
         {{ player.name }}
       </li>
     </ul>
-    <button class="btn btn-lg btn-primary" id="start-game-btn" v-on:click="enterTheGame()"></button>
+    <button class="btn btn-lg btn-primary" id="start-game-btn" v-on:click="enterTheGame()">démarrer le jeu</button>
   </div>
 </template>
 
@@ -38,11 +38,12 @@
         }
       },
       enterTheGame: function () {
-        console.log('from start page', this.players)
-        DataPasser.setData(this.players)
-        this.$router.push({
-          path: 'game'
-        })
+        if (this.players.length !== 0) {
+          DataPasser.setData(this.players)
+          this.$router.push({
+            path: 'game'
+          })
+        }
       }
     }
   }
