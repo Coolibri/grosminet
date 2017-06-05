@@ -2,8 +2,21 @@
   <div class="game">
     <planet-state :state="state" :global="global"></planet-state>
 
-    <messages :messages="messages" class="messages"></messages>
-
+    <messages :messages="messages" class="messages" v-if="areWePlaying"></messages>
+    <div class="messages" v-else>
+      <p>{{ nextMessage }} Fin du jeu !</p>
+      <div v-if="global < 5">
+        <p>La planète n'a pas survécu à votre rythme de vie</p>
+      </div>
+      <div v-else-if="global > 95">
+        <p>Vous avez gagné</p>
+      </div>
+      <div v-else>
+        <p>Fin du scenario</p>
+        <p>{{ state }}</p>
+        <p>global {{ global }}</p>
+      </div>
+    </div>
     <div class="players">
       <player @choice="playerMkChoice" :choices="currentChoices" v-for="player in players" :player="player"
               :key="player.name"></player>
@@ -41,7 +54,8 @@
         choicesHistory: [],
         nextMessage: '',
         messages: [],
-        global: 50
+        global: 50,
+        areWePlaying: true
       }
     },
     created: function () {
@@ -86,11 +100,18 @@
             this.choicesHistory
           )
 
-          TreeLoader.setNextTurn(selected)
-          this.messages.push({
-            text: this.nextMessage + TreeLoader.getCurrentTurn().text
-          })
-          this.resetTurn()
+          if (PointsCompanion.isItTheEnd(this.global)) {
+            this.messages.push({
+              text: this.nextMessage + 'fin du jeu'
+            })
+            this.areWePlaying = false
+          } else {
+            TreeLoader.setNextTurn(selected)
+            this.messages.push({
+              text: this.nextMessage + TreeLoader.getCurrentTurn().text
+            })
+            this.resetTurn()
+          }
         }
       },
       resetTurn: function () {

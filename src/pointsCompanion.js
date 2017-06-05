@@ -1,3 +1,5 @@
+import TreeLoader from '@/tree/treeLoader'
+
 export default {
   /**
    * calc the global poucentage of planet state according 4 lasts choices.
@@ -72,5 +74,19 @@ export default {
     }
 
     return state
+  },
+
+  /**
+   * check if it's the last leaf or if the planet live forever or die.
+   *
+   * @param global
+   * @return boolean true if it's the end of the game.
+   */
+  isItTheEnd: function (global) {
+    if (TreeLoader.getCurrentTurn().childs === null) {
+      return true
+    }
+
+    return global < 5 || global > 95
   }
 }
