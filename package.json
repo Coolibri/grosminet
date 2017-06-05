@@ -1,7 +1,7 @@
 {
   "name": "coolibri-prompt",
-  "version": "1.0.0",
-  "description": "A Vue.js project",
+  "version": "0.0.1",
+  "description": "Coolibri (FIRST 2017) prototype 1",
   "author": "Paul Jarleton <sarlam@minet.net>",
   "private": true,
   "scripts": {
