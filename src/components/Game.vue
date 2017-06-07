@@ -1,8 +1,8 @@
 <template>
   <div class="game">
-    <planet-state :state="state" :global="global"></planet-state>
 
     <messages :messages="messages" class="messages" v-if="areWePlaying"></messages>
+
     <div class="messages" v-else>
       <p>{{ nextMessage }} Fin du jeu !</p>
       <div v-if="global < 5">
@@ -17,6 +17,9 @@
         <p>global {{ global }}</p>
       </div>
     </div>
+
+    <planet-state id="planet-state" :state="state" :global="global"></planet-state>
+
     <div class="players">
       <player @choice="playerMkChoice" :choices="currentChoices" v-for="player in players" :player="player"
               :key="player.name"></player>
@@ -125,17 +128,32 @@
 </script>
 
 <style scoped>
+  @import url('https://fonts.googleapis.com/css?family=Puritan:400,700');
+
+  * {
+    font-family: 'Puritan', sans-serif;
+    font-weight: 700;
+  }
+
+  .messages {
+    font-size: 1.2em;
+  }
+
   .game {
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    /* background: linear-gradient(to top, rgb(0.8,0.8,0.8),white); */
+    background: #e0f8f1;
   }
 
   .messages {
-    border: 1px solid black;
+    border-bottom: 1px solid darkgrey;
     overflow: auto;
+    background: white;
     flex: 1;
   }
 
@@ -143,4 +161,9 @@
     display: flex;
     justify-content: space-around;
   }
+
+  #planet-state {
+    padding-top: 20px;
+  }
+
 </style>
