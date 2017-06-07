@@ -128,6 +128,17 @@
 </script>
 
 <style scoped>
+  @import url('https://fonts.googleapis.com/css?family=Puritan:400,700');
+
+  * {
+    font-family: 'Puritan', sans-serif;
+    font-weight: 700;
+  }
+
+  .messages {
+    font-size: 1.2em;
+  }
+
   .game {
     height: 100%;
     width: 100%;
@@ -152,7 +163,7 @@
   }
 
   #planet-state {
-    padding-top:20px;
+    padding-top: 20px;
   }
 
 </style>
