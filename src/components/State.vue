@@ -55,8 +55,7 @@
     display: inline-block;
   }
 
-
-  .global div label{
+  .global div label {
     width: 20%;
   }
 
@@ -85,6 +84,12 @@
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -7px;
+  }
+
+  .global-none div input[type=range]::-webkit-slider-thumb {
+    height: 12px;
+    margin-top: -5px;
+    width: 8px;
   }
 
   input[type=range]::-webkit-slider-runnable-track {

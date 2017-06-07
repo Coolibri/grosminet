@@ -1,11 +1,18 @@
 <template>
   <div class="player" :class="{unactive: !active}">
     <h4>{{ player.name }}</h4>
+    <hr/>
     <state :global="false" :state="state"></state>
-    <div>
-      <div v-on:click="mkChoice(player.name, 0, choices[0])">{{ choices[0].label }}</div>
-      <div v-on:click="mkChoice(player.name, 1, choices[1])">{{ choices[1].label }}</div>
-      <div v-on:click="mkChoice(player.name, 2, choices[2])">{{ choices[2].label }}</div>
+    <div class="btn-group">
+      <button v-on:click="mkChoice(player.name, 0, choices[0])">
+        {{ choices[0].label }}
+      </button>
+      <button v-on:click="mkChoice(player.name, 1, choices[1])">
+        {{ choices[1].label }}
+      </button>
+      <button v-on:click="mkChoice(player.name, 2, choices[2])">
+        {{ choices[2].label }}
+      </button>
     </div>
 
   </div>
@@ -57,7 +64,46 @@
 </script>
 
 <style scoped>
+
+
   .unactive {
     background: lightgrey;
+  }
+
+  .btn-group {
+    margin: 7px 0;
+  }
+
+  .btn-group button {
+    border: 1px solid darkgrey;
+    margin: 0;
+    background: white;
+    padding: 5px 8px;
+    font-size: 1.05em;
+    display: block;
+    width: 100%;
+  }
+
+  .btn-group button:hover {
+    background: lightgrey;
+  }
+
+  .unactive .btn-group button {
+    background: lightgrey;
+  }
+
+  .btn-group button:first-child {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+
+  .btn-group button:last-child {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  * {
+    font-family: 'Puritan', sans-serif;
+    font-weight: 700;
   }
 </style>

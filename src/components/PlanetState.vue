@@ -72,4 +72,11 @@
     display: inline-block;
     width: 70%;
   }
+
+  @import url('https://fonts.googleapis.com/css?family=Puritan:400,700');
+
+  *{
+    font-family: 'Puritan', sans-serif;
+    font-weight: 700;
+  }
 </style>

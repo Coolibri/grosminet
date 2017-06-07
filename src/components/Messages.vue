@@ -21,6 +21,9 @@
 
 <style scoped>
   @import url('https://fonts.googleapis.com/css?family=Puritan:400,700');
+  *{
+    font-family: 'Puritan', sans-serif;
+  }
 
   #messages-list {
     padding: 10px;
