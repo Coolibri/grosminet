@@ -56,9 +56,9 @@
     cursor: pointer;
     animate: 0.2s;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    background: -moz-linear-gradient(to right, red, green);
-    background: -webkit-linear-gradient(to right, red, green);
-    background: linear-gradient(to right, red, green);
+    background: -moz-linear-gradient(to right, red, lawngreen);
+    background: -webkit-linear-gradient(to right, red, lawngreen);
+    background: linear-gradient(to right, red, lawngreen);
     border-radius: 1.3px;
     border: 0.2px solid #010101;
   }
