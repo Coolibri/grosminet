@@ -7,8 +7,9 @@
         v-model="playerName"
         placeholder="nom du nouveau joueur"
         @keyup.enter="addPlayer"/>
-      <div class="btn btn-primary" v-on:click="addPlayer()">ajouter le joueur</div>
+      <button v-on:click="addPlayer()">ajouter le joueur</button>
     </form>
+    <hr/>
     <ul>
       <li
         v-for="player in players"
@@ -16,7 +17,7 @@
         {{ player.name }}
       </li>
     </ul>
-    <button class="btn btn-lg btn-primary" id="start-game-btn" v-on:click="enterTheGame()">démarrer le jeu</button>
+    <button class="btn btn-lg btn-primary" id="start-game-btn" v-on:click="enterTheGame()">Démarrer le jeu</button>
   </div>
 </template>
 
@@ -50,5 +51,23 @@
 </script>
 
 <style scoped>
+  .start-page ul {
+    margin:5px;
+    padding-left:0;
+  }
 
+  .start-page ul li {
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+  }
+
+  .btn-primary {
+    font-size:2em;
+    padding:5px;
+  }
+
+  hr {
+    width:90%;
+  }
 </style>

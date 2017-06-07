@@ -1,8 +1,8 @@
 <template>
   <div class="game">
-    <planet-state :state="state" :global="global"></planet-state>
 
     <messages :messages="messages" class="messages" v-if="areWePlaying"></messages>
+
     <div class="messages" v-else>
       <p>{{ nextMessage }} Fin du jeu !</p>
       <div v-if="global < 5">
@@ -17,6 +17,9 @@
         <p>global {{ global }}</p>
       </div>
     </div>
+
+    <planet-state id="planet-state" :state="state" :global="global"></planet-state>
+
     <div class="players">
       <player @choice="playerMkChoice" :choices="currentChoices" v-for="player in players" :player="player"
               :key="player.name"></player>
@@ -134,7 +137,7 @@
   }
 
   .messages {
-    border: 1px solid black;
+    border-bottom: 1px solid darkgrey;
     overflow: auto;
     flex: 1;
   }
@@ -142,5 +145,9 @@
   .players {
     display: flex;
     justify-content: space-around;
+  }
+
+  #planet-state {
+    padding-top:20px;
   }
 </style>

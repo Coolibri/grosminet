@@ -18,3 +18,18 @@
     }
   }
 </script>
+
+<style scoped>
+  @import url('https://fonts.googleapis.com/css?family=Puritan:400,700');
+
+  #messages-list {
+    padding: 10px;
+  }
+
+  p {
+    text-align: justify;
+    font-family: 'Puritan', sans-serif;
+    font-weight: 700;
+    font-size:1.05em;
+  }
+</style>
