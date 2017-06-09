@@ -1,3 +1,6 @@
+import childs1 from './turns/turn04'
+import childs2 from './turns/turn04bis'
+
 export default 
 [
   {
@@ -49,7 +52,8 @@ export default
         energy: {value: -2, turns: [1, 0, 0, 0]}
       }
     }
-    ]
+    ],
+    childs : childs1
   },
   {
     text: 'Pour la plus part d\'entre vous, vous avez choisi d\'intensifier la production des centrales nucléaires! Regardons les résultats sur votre planète ! L\'énergie est revenu partout dans toute la ville ! Vous décidez donc de remettre la production d\'éléctricité à un niveau normal, ce qui vous prendra quelques tours. Cependant, la production a rejeté beaucoup de CO2 dans l\'air. De plus, faites attentions, le nombre de déchets nuélaires semblent augmenter... ! Que souhaitez vous faire? ',
@@ -102,6 +106,7 @@ export default
         energy: {value: 1, turns: [0.5, 1, 2, 0]}
       }
     }
-    ]
+    ],
+    childs : childs2
   }
 ]

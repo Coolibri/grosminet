@@ -1,3 +1,5 @@
+import childs from './turns/turn01'
+
 export default [
   {
     text: 'most of you chose OGM, so let\'s see OGM results on planet !',
@@ -18,7 +20,7 @@ export default [
         label: 'soda',
         value: (pName) => { return pName + ' veux du sucre,plus de sucre ! ' }
       }
-    ]
+    ],
   },
   {
     text: 'most of you chose engrais, so let\'s see engrais results on planet !',
