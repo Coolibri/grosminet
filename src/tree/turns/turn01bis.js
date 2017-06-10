@@ -1,6 +1,6 @@
-import childs1 from './turns/turn02bis'
-import childs2 from './turns/turn02'
-import childs3 from './turns/turn02bis2'
+import childs1 from './turn02bis'
+import childs2 from './turn02'
+import childs3 from './turn02bis2'
 
 export default 
 [

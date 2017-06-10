@@ -1,4 +1,4 @@
-import childs from './turns/turn01'
+import childs from './turns/turn01bis'
 
 export default {
   text: 'Vous commencez chacun à produire trop de déchets. Comment allez-vous gérer leur évacuation des villes ?',
