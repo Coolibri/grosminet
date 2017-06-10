@@ -1,5 +1,3 @@
-import childs from './turns/turn01'
-
 export default [
   {
     text: 'most of you chose OGM, so let\'s see OGM results on planet !',
