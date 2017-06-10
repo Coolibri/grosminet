@@ -18,7 +18,7 @@ export default [
         label: 'soda',
         value: (pName) => { return pName + ' veux du sucre,plus de sucre ! ' }
       }
-    ]
+    ],
   },
   {
     text: 'most of you chose engrais, so let\'s see engrais results on planet !',
