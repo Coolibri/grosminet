@@ -83,6 +83,8 @@ export default {
    * @return boolean true if it's the end of the game.
    */
   isItTheEnd: function (global) {
+    console.log('is this the end ?', TreeLoader.getCurrentTurn().childs)
+    console.log('is this the end ?', global)
     if (TreeLoader.getCurrentTurn().childs === null) {
       return true
     }
