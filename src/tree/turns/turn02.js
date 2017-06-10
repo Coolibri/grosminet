@@ -18,7 +18,7 @@ export default
       },
       points: {
         food: {value: 1, turns: [0, 0, -0.5, -1]},
-        water: {value: 1, turns: [0, 0, -0.5 1]},
+        water: {value: 1, turns: [0, 0, -0.5, 1]},
         waste: {value: 2, turns: [0.5, 0.5, 0, 0]},
         energy: {value: 0, turns: [1, 0, 0, 0]}
       	}
@@ -48,7 +48,7 @@ export default
         }
       },
        points: {
-        food: {value: -2, turns: [0 0.5, 0.5, 1]},
+        food: {value: -2, turns: [0, 0.5, 0.5, 1]},
         water: {value: -3, turns: [0, 0.5, 1, 2]},
         waste: {value: 2, turns: [1, 0.5, 0, 0]},
         energy: {value: 0, turns: [0, 0, 0, 0]}
