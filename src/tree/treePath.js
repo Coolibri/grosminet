@@ -25,7 +25,7 @@ export default {
         if (nbP === 0) {
           return 'Personne ne choisit l\'incinération des déchets. '
         }
-        return 'Des usines d\'incinération sont construites dans ' + nbP + ' pays. Elles permettent de plus de produire de l\'énergie, mais vont doucement polluer l\'air.  '
+        return 'Des usines d\'incinération sont construites dans ' + nbP + ' pays. Elles permettent de plus de produire de l\'énergie, mais vont lentement polluer l\'air.  '
       },
       points: {
         food: {value: 1, turns: [0, 0, 0, -0.5]},
@@ -38,7 +38,7 @@ export default {
       label: 'Enfouissemment des déchets',
       value: (nbP) => {
         if (!nbP) {
-          return 'Personne ne choisir d\'enterrer les déchets'
+          return 'Personne ne choisit d\'enterrer les déchets'
         }
         return ' ' + nbP + ' joueurs décident d\'enterrer les déchets. '
       },

@@ -5,10 +5,10 @@ import childs3 from './turn02bis2'
 export default
 [
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi de faire une décharge en plein air ! Regardons les résultats sur votre planète ! Le problème déchet est en parti résolu, ils sont tous rassemblés dans un endroit. Cependant, en les laissant à l\'air libre, les déchets produisent du gaz et des lixiviats qui véhiculent une importante charge polluante. De plus, ces lixiviats s\'infiltrent dans les sous-sols et dégradent les eaux souterrains.  Que souhaitez vous faire? ',
+    text: 'Pour la plupart d\'entre vous, vous avez choisi de faire une décharge en plein air ! Regardons les résultats sur votre planète ! Le problème de déchets est en partie résolu, ils sont tous rassemblés dans un endroit. Cependant, en les laissant à l\'air libre, les déchets produisent du gaz et des lixiviats qui véhiculent une importante charge polluante. De plus, ces lixiviats s\'infiltrent dans les sous-sols et dégradent les eaux souterraines. Que souhaitez-vous faire? ',
     choices: [
       {
-        label: 'Planter des Arbres pour aspirer le CO2',
+        label: 'Planter des arbres pour aspirer le CO2',
         value: (nbP) => {
           if (nbP === 0) {
             return 'Personne ne plante d\'arbres.'
@@ -27,7 +27,7 @@ export default
         label: 'Traiter les eaux souterraines ',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne n\'a choisi de détourner un cours d\'eau '
+            return 'Personne n\'a choisi de détourner un cours d\'eau '
           }
           return nbP + ' pays ont choisi de détourner un cours d\'eau. '
         },
@@ -42,7 +42,7 @@ export default
         label: 'Rien',
         value: (nbP) => {
           if (nbP === 0) {
-            return ' personne n\'a choisi de ne rien faire ! '
+            return ' Personne n\'a choisi de ne rien faire ! '
           }
           return nbP + ' pays ont choisi de ne rien faire!'
         },
@@ -57,7 +57,7 @@ export default
     childs: childs3
   },
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi d\'incinérer les déchets ! Regardons les résultats sur votre planète ! Grâce à l\'incinération, les déchets sont traités efficacement. Leur combustion produit un peu d\'énergie mais pas assez pour fournir la population grandissante de la planète . Que souhaitez vous faire? ',
+    text: 'Pour la plus part d\'entre vous, vous avez choisi d\'incinérer les déchets ! Regardons les résultats sur votre planète ! Grâce à l\'incinération, les déchets sont traités efficacement. Leur combustion produit un peu d\'énergie mais pas assez pour fournir la population grandissante de la planète . Que souhaitez-vous faire? ',
     choices: [
       {
         label: 'Eoliennes',
@@ -79,7 +79,7 @@ export default
         label: 'Nucléaire',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne n\'a choisi le nucléaire '
+            return 'Personne n\'a choisi le nucléaire '
           }
           return '' + nbP + ' pays construisent des centrales nucléaires. '
         },
@@ -109,13 +109,13 @@ export default
     childs: childs1
   },
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi d\'enfouir les déchets ! Regardons les résultats sur votre planète ! Le problème déchet est en parti résolu. Cependant, en les mettant sous terre, des produits chimiques présent parmis les déchets se sont infiltrés dans la terre et notemment dans les nappes phréatiques! Les habitants de votre planète n\'ont alors plu d\'eau pour d\'hydrater. Que souhaitez vous faire? ',
+    text: 'Pour la plupart d\'entre vous, vous avez choisi d\'enfouir les déchets ! Regardons les résultats sur votre planète ! Le problème de déchets est en partie résolu. Cependant, en les mettant sous terre, des produits chimiques présent parmis les déchets se sont infiltrés dans la terre et notamment dans les nappes phréatiques! Les habitants de votre planète n\'ont alors plus d\'eau pour d\'hydrater. Que souhaitez-vous faire? ',
     choices: [
       {
         label: 'Distribuer des bouteilles d\'eau !',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'Personne ne distribue de bouteilles?'
+            return 'Personne ne distribue de bouteilles ?'
           } else {
             return 'Pour ' + nbP + ' pays, ce sera open bouteilles d\'eau ! '
           }
@@ -131,7 +131,7 @@ export default
         label: 'Détourner un cours d\'eau ',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne n\'a choisi de détourner un cours d\'eau '
+            return 'Personne n\'a choisi de détourner un cours d\'eau '
           }
           return nbP + ' pays ont choisi de détourner un cours d\'eau. '
         },
@@ -146,9 +146,9 @@ export default
         label: 'Désintoxiquer les nappes phréatiques',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne n\'a choisi de Désintoxiquer les nappes phréatiques !'
+            return 'Personne n\'a choisi de Désintoxiquer les nappes phréatiques !'
           }
-          return nbP + ' a choisi de désintoxiquer les nappes phréatiques !'
+          return nbP + ' pays ont choisi de désintoxiquer les nappes phréatiques !'
         },
         points: {
           food: {value: 0, turns: [1, 0.5, 0, -0.5]},

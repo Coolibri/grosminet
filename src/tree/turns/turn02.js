@@ -5,7 +5,7 @@ import childs3 from './turn03bis'
 export default
 [
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi de distribuer des bouteilles d\'eau ! Regardons les résultats sur votre planète ! Le problème d\'eau est en parti résolu. Cependant, en utilisant distribuant des bouteilles d\'eau, vous avez augmenté significativement le nombre de déchets. Les éboueurs étant débordé, il vous faut une solution ! Que souhaitez vous faire? ',
+    text: 'Pour la plupart d\'entre vous, vous avez choisi de distribuer des bouteilles d\'eau ! Regardons les résultats sur votre planète ! Le problème d\'eau est en partie résolu. Cependant, en distribuant des bouteilles d\'eau, vous avez augmenté significativement le nombre de déchets. Les éboueurs étant débordés, il vous faut une solution ! Que souhaitez-vous faire? ',
     choices: [
       {
         label: 'Rien !',
@@ -29,7 +29,7 @@ export default
           if (nbP === 0) {
             return 'Personne ne choisit l\'incinération des déchets. '
           }
-          return 'Des usines d\'incinération sont construites dans ' + nbP + ' pays. Elles permettent de plus de produire de l\'énergie, mais vont doucement polluer l\'air.  '
+          return 'Des usines d\'incinération sont construites dans ' + nbP + ' pays. Elles permettent de plus de produire de l\'énergie, mais vont lentement polluer l\'air.  '
         },
         points: {
           food: {value: 1, turns: [0, 0, 0, -0.5]},
@@ -58,7 +58,7 @@ export default
     childs: childs1
   },
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi de détourner un cours d\'eau ! Regardons les résultats sur votre planète ! Le problème d\'eau est en parti résolu. Cependant, en détournant un cours d\'eau, vous avez privé votre station hydraulique d\'eau, elle ne produit alors plus autant d\'éléctricité ! Une partie de votre pays est même privé d\'éléctricité ! Que souhaitez vous faire? ',
+    text: 'Pour la plupart d\'entre vous, vous avez choisi de détourner un cours d\'eau ! Regardons les résultats sur votre planète ! Le problème d\'eau est en partie résolu. Cependant, en détournant un cours d\'eau, vous avez privé votre station hydraulique d\'eau, elle ne produit alors plus autant d\'éléctricité ! Une partie de votre pays est même privée d\'éléctricité ! Que souhaitez-vous faire? ',
     choices: [
       {
         label: 'Construire des éoliennes',
@@ -96,7 +96,7 @@ export default
     childs: childs2
   },
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi de désintoxiquer les nappes phréatiques ! Regardons les résultats sur votre planète ! Le problème d\'eau se pose toujours mais la situation s\'améliore. Cependant, désintoxiquer les nappes phréatiques, ça demande de l\'énergie ! Il semblerait même qu\'il y ait quelque coupure général d\'éléctricité pendant la journée ! Que souhaitez vous faire? ',
+    text: 'Pour la plus part d\'entre vous, vous avez choisi de désintoxiquer les nappes phréatiques ! Regardons les résultats sur votre planète ! Le problème d\'eau se pose toujours mais la situation s\'améliore. Cependant, désintoxiquer les nappes phréatiques, ça demande de l\'énergie ! Il semblerait même qu\'il y ait quelques coupures générales d\'éléctricité pendant la journée ! Que souhaitez-vous faire? ',
     choices: [
       {
         label: 'Construire des éoliennes',

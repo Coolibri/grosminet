@@ -1,13 +1,13 @@
 export default
 [
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi d\'investir dans les OGM ! Regardons les résultats sur votre planète ! Des plantes résistant à l\'empoisonement ont pu poussé dans vos champ ! La quantité de nourriture n\'est plus un problème, il semblerait même que la production ait dépassé la consommation ! Votre quantité de production est donc revu à la baisse. Ensuite, la plantation d\'OGM a crée différents problème : premièrement, à cause d\'une surproduction, il y a donc trop de déchets alimentaires dans votre pays. Ensuite, il semblerait les OMG ont eu un effet nocif sur les micro-organisme du sol. Les plantes traditionnelles ont plus de mal à se développer à présent. De plus, les chercheurs ne savent pas encore les effets à long terme des OGM sur l\'Homme... Restez vigilent. Que souhaitez vous faire? ',
+    text: 'Pour la plupart d\'entre vous, vous avez choisi d\'investir dans les OGM ! Regardons les résultats sur votre planète ! Des plantes résistant à l\'empoisonement ont pu pousser dans vos champs ! La quantité de nourriture n\'est plus un problème, il semblerait même que la production ait dépassé la consommation ! Votre quantité de production est donc revue à la baisse. Ensuite, la plantation d\'OGM a créé différents problèmes : premièrement, à cause d\'une surproduction, il y a donc trop de déchets alimentaires dans votre pays. Ensuite, il semblerait les OMG ont eu un effet nocif sur les micro-organismes du sol. Les plantes traditionnelles ont plus de mal à se développer à présent. De plus, les chercheurs ne savent pas encore les effets à long terme des OGM sur l\'Homme... Restez vigilants. Que souhaitez-vous faire? ',
     choices: [
       {
         label: ' Incinérer les déchets',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personnes ne décide d\'incinérer les décherts ?'
+            return 'Personne ne décide d\'incinérer les décherts ?'
           } else {
             return 'Dans ' + nbP + ' pays, on brûle les déchets ! '
           }
@@ -20,10 +20,10 @@ export default
         }
       },
       {
-        label: 'Prioritiser le traitement du sol',
+        label: 'Prioriser le traitement du sol',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne ne s\'occupe du sol ? '
+            return 'Personne ne s\'occupe du sol ? '
           }
           return 'Traitons le sol dans ' + nbP + ' pays. '
         },
@@ -38,13 +38,13 @@ export default
     childs: null
   },
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi d\'utiliser des engrais! Regardons les résultats sur votre planète ! L\'utilisation d\'engrais a permis d\'augmenter la production de légumes, les habitants peuvent alors remanger à leur faim ! Cependant, l\'utilisation d\'engrais à fait que certain produits chimiques ont infiltré la terre, et par conséquent, amoindris la quantité de micro-organisme dans le sol pourtant essentiel à la croissance des plantes. Les plantes deviennet alors dépendant des engrais. En plus de crée une dépendance, il semblerait que certains de vos engrais contenait de l\'ammoniac ! Les effets de dénitrification ont alors générés des gazs à effets de serre. Que souhaitez vous faire? ',
+    text: 'Pour la plupart d\'entre vous, vous avez choisi d\'utiliser des engrais! Regardons les résultats sur votre planète ! L\'utilisation d\'engrais a permis d\'augmenter la production de légumes, les habitants peuvent alors remanger à leur faim ! Cependant, l\'utilisation d\'engrais a fait que certains produits chimiques ont infiltré la terre, et par conséquent, amoindri la quantité de micro-organismes dans le sol pourtant essentiels à la croissance des plantes. Les plantes deviennent alors dépendantes des engrais. En plus de créer une dépendance, il semblerait que certains de vos engrais contenaient de l\'ammoniac ! Les effets de dénitrification ont alors généré des gazs à effet de serre. Que souhaitez-vous faire? ',
     choices: [
       {
         label: 'Traiter le sol',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne ne s\'occupe du sol ? '
+            return 'Personne ne s\'occupe du sol ? '
           }
           return 'Traitons le sol dans ' + nbP + ' pays. '
         },
@@ -56,10 +56,10 @@ export default
         }
       },
       {
-        label: 'Boiser de nouveaux arbres ',
+        label: 'Planter de nouveaux arbres ',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'Personne ne plantes d\'arbres.'
+            return 'Personne ne plante d\'arbres.'
           } else {
             return 'Pour ' + nbP + ' pays, on plante des arbres ! '
           }
@@ -75,15 +75,15 @@ export default
     childs: null
   },
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi de faire de l\'élevage intensif ! Le problème de nourriture n\'est pas totalement réglé mais ça va dans le bon sens. Cependant, il semblerait que l\'élebage intensif rejette beaucoup de gaz à effets de serre dans l\'air. Que souhaitez vous faire? ',
+    text: 'Pour la plupart d\'entre vous, vous avez choisi de faire de l\'élevage intensif ! Le problème de nourriture n\'est pas totalement réglé mais ça va dans le bon sens. Cependant, il semblerait que l\'élevage intensif rejette beaucoup de gaz à effets de serre dans l\'air. Que souhaitez-vous faire? ',
     choices: [
       {
         label: 'Rien',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personnes ne fait rien ?'
+            return 'Personne ne fait rien ?'
           } else {
-            return nbP + ' pays décide de ne rien faire ! '
+            return nbP + ' pays décident de ne rien faire ! '
           }
         },
         points: {
@@ -94,10 +94,10 @@ export default
         }
       },
       {
-        label: 'boiser des arbres',
+        label: 'Planter des arbres',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne ne replante d\'arbre. '
+            return 'Personne ne replante d\'arbre. '
           }
           return nbP + ' pays plantent de nouveaux arbres. '
         },
@@ -109,12 +109,12 @@ export default
         }
       },
       {
-        label: 'Transport gratuit',
+        label: 'Transport gratuits',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne ne rend les transports en commun gratuit!'
+            return 'Personne ne rend les transports en commun gratuits !'
           }
-          return nbP + ' pays rendent leur transports gratuit 2 semaines dans l\'année !'
+          return nbP + ' pays rendent leur transports gratuits 2 semaines dans l\'année !'
         },
         points: {
           food: {value: 0, turns: [0, 0, 0, 0]},

@@ -1,13 +1,13 @@
 export default
 [
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi de rendre les transports communs ! Bonne nouvelle : les gens utilisent moins leur voiture, et donc il y a moins de CO2 dégagé. Que souhaitez vous faire? ',
+    text: 'Pour la plupart d\'entre vous, vous avez choisi de rendre les transports commun gratuits ! Bonne nouvelle : les gens utilisent moins leurs voitures, et donc il y a moins de CO2 dégagé. Que souhaitez-vous faire? ',
     choices: [
       {
         label: ' Incinérer les déchets',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personnes ne décide d\'incinérer les décherts ?'
+            return 'Personne ne décide d\'incinérer les décherts ?'
           } else {
             return 'Dans ' + nbP + ' pays, on brûle les déchets ! '
           }
@@ -20,10 +20,10 @@ export default
         }
       },
       {
-        label: 'Prioritiser le traitement du sol',
+        label: 'Prioriser le traitement du sol',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne ne s\'occupe du sol ? '
+            return 'Personne ne s\'occupe du sol ? '
           }
           return 'Traitons le sol dans ' + nbP + ' pays. '
         },
@@ -35,10 +35,10 @@ export default
         }
       },
       {
-        label: 'Prioritiser le traitement du sol',
+        label: 'Prioriser le traitement du sol',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne ne s\'occupe du sol ? '
+            return 'Personne ne s\'occupe du sol ? '
           }
           return 'Traitons le sol dans ' + nbP + ' pays. '
         },
@@ -53,13 +53,13 @@ export default
     childs: null
   },
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi d\'inciter vos habitants à acheter des voitures électriques. Que souhaitez vous faire? ',
+    text: 'Pour la plupart d\'entre vous, vous avez choisi d\'inciter vos habitants à acheter des voitures électriques. Que souhaitez-vous faire? ',
     choices: [
       {
         label: 'Traiter le sol',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne ne s\'occupe du sol ? '
+            return 'Personne ne s\'occupe du sol ? '
           }
           return 'Traitons le sol dans ' + nbP + ' pays. '
         },
@@ -71,10 +71,10 @@ export default
         }
       },
       {
-        label: 'Boiser de nouveaux arbres ',
+        label: 'Planter de nouveaux arbres ',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'Personne ne plantes d\'arbres.'
+            return 'Personne ne plante d\'arbres.'
           } else {
             return 'Pour ' + nbP + ' pays, on plante des arbres ! '
           }
@@ -87,10 +87,10 @@ export default
         }
       },
       {
-        label: 'Boiser de nouveaux arbres ',
+        label: 'Planter de nouveaux arbres ',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'Personne ne plantes d\'arbres.'
+            return 'Personne ne plante d\'arbres.'
           } else {
             return 'Pour ' + nbP + ' pays, on plante des arbres ! '
           }
@@ -106,15 +106,15 @@ export default
     childs: null
   },
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi de planter des arbres pour aspirer le CO2. Que souhaitez vous faire? ',
+    text: 'Pour la plupart d\'entre vous, vous avez choisi de planter des arbres pour aspirer le CO2. Que souhaitez-vous faire? ',
     choices: [
       {
         label: 'Rien',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personnes ne fait rien ?'
+            return 'Personne ne fait rien ?'
           } else {
-            return nbP + ' pays décide de ne rien faire ! '
+            return nbP + ' pays décident de ne rien faire ! '
           }
         },
         points: {
@@ -125,10 +125,10 @@ export default
         }
       },
       {
-        label: 'boiser des arbres',
+        label: 'Planter des arbres',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne ne replante d\'arbre. '
+            return 'Personne ne replante d\'arbre. '
           }
           return nbP + ' pays plantent de nouveaux arbres. '
         },
@@ -140,12 +140,12 @@ export default
         }
       },
       {
-        label: 'Transport gratuit',
+        label: 'Transports gratuits',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne ne rend les transports en commun gratuit!'
+            return 'Personne ne rend les transports en commun gratuits !'
           }
-          return nbP + ' pays rendent leur transports gratuit 2 semaines dans l\'année !'
+          return nbP + ' pays rendent leur transports gratuits 2 semaines dans l\'année !'
         },
         points: {
           food: {value: 0, turns: [0, 0, 0, 0]},

@@ -1,7 +1,7 @@
 export default
 [
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi de planter des arbres pour aspirer le CO2! Que souhaitez vous faire? ',
+    text: 'Pour la plupart d\'entre vous, vous avez choisi de planter des arbres pour aspirer le CO2! Que souhaitez-vous faire? ',
     choices: [
       {
         label: ' ',
@@ -53,7 +53,7 @@ export default
     childs: null
   },
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi de traiter les eaux souterraines ! Que souhaitez vous faire? ',
+    text: 'Pour la plupart d\'entre vous, vous avez choisi de traiter les eaux souterraines ! Que souhaitez vous faire? ',
     choices: [
       {
         label: ' ',
@@ -106,15 +106,15 @@ export default
     childs: null
   },
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi de ne rien faire ! L\'eau pollué attaque votre nourriture, que faire ?',
+    text: 'Pour la plupart d\'entre vous, vous avez choisi de ne rien faire ! L\'eau polluée attaque votre nourriture, que faire ?',
     choices: [
       {
-        label: 'faire des OGMS',
+        label: 'Faire des OGMS',
         value: (nbP) => {
           if (nbP === 0) {
-            return ' personne ne veux manger d\'OGM ? '
+            return ' Personne ne veux manger d\'OGM ? '
           } else {
-            return nbP + ' de pays passent à l\'OGM ! '
+            return nbP + ' de pays passent aux OGM ! '
           }
         },
         points: {
