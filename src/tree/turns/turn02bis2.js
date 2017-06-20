@@ -14,9 +14,9 @@ export default
         },
         points: {
           food: {value: 0, turns: [0, 0, 0, 0]},
-          water: {value: 1, turns: [0, 0, 0, -0.5]},
-          waste: {value: 3, turns: [1, 1, 1, 1]},
-          energy: {value: 2, turns: [0.5, 0.5, 0.5, 0.5]}
+          water: {value: 0, turns: [0, 0, 0, -0.5]},
+          waste: {value: 0, turns: [1, 1, 1, 1]},
+          energy: {value: 0, turns: [0.5, 0.5, 0.5, 0.5]}
         }
       },
       {
@@ -29,9 +29,9 @@ export default
         },
         points: {
           food: {value: 0, turns: [0, 0, 0, 0]},
-          water: {value: 1, turns: [1.5, 2, 3, 1]},
-          waste: {value: -1, turns: [1, 1, 1, 1]},
-          energy: {value: -1, turns: [2, 1, 0.5, -2]}
+          water: {value: 0, turns: [1.5, 2, 3, 1]},
+          waste: {value: 0, turns: [1, 1, 1, 1]},
+          energy: {value: 0, turns: [2, 1, 0.5, -2]}
         }
       },
       {
@@ -44,9 +44,9 @@ export default
         },
         points: {
           food: {value: 0, turns: [0, 0, 0, 0]},
-          water: {value: 1, turns: [1.5, 2, 3, 1]},
-          waste: {value: -1, turns: [1, 1, 1, 1]},
-          energy: {value: -1, turns: [2, 1, 0.5, -2]}
+          water: {value: 0, turns: [1.5, 2, 3, 1]},
+          waste: {value: 0, turns: [1, 1, 1, 1]},
+          energy: {value: 0, turns: [2, 1, 0.5, -2]}
         }
       }
     ],
@@ -65,9 +65,9 @@ export default
         },
         points: {
           food: {value: 0, turns: [0, 0, 0, 0]},
-          water: {value: 1, turns: [1.5, 2, 3, 1]},
-          waste: {value: -1, turns: [1, 1, 1, 1]},
-          energy: {value: -1, turns: [2, 1, 0.5, -2]}
+          water: {value: 0, turns: [1.5, 2, 3, 1]},
+          waste: {value: 0, turns: [1, 1, 1, 1]},
+          energy: {value: 0, turns: [2, 1, 0.5, -2]}
         }
       },
       {
@@ -81,7 +81,7 @@ export default
         },
         points: {
           food: {value: 0, turns: [0, 0, 0, 0]},
-          water: {value: 1, turns: [0.5, 1, 2, 4]},
+          water: {value: 0, turns: [0.5, 1, 2, 4]},
           waste: {value: 0, turns: [0, 0, 0, 0]},
           energy: {value: 0, turns: [0, 0, 0, 0]}
         }
@@ -97,7 +97,7 @@ export default
         },
         points: {
           food: {value: 0, turns: [0, 0, 0, 0]},
-          water: {value: 1, turns: [0.5, 1, 2, 4]},
+          water: {value: 0, turns: [0.5, 1, 2, 4]},
           waste: {value: 0, turns: [0, 0, 0, 0]},
           energy: {value: 0, turns: [0, 0, 0, 0]}
         }
@@ -118,10 +118,10 @@ export default
           }
         },
         points: {
-          food: {value: 2, turns: [1, 1, 1, 1]},
-          water: {value: -1, turns: [1, 1, 1, 1]},
-          waste: {value: -2, turns: [0, 0, 0.5, 1]},
-          energy: {value: -4, turns: [0.5, 0.5, 0.5, 0.5]}
+          food: {value: 0, turns: [1, 1, 1, 1]},
+          water: {value: 0, turns: [1, 1, 1, 1]},
+          waste: {value: 0, turns: [0, 0, 0.5, 1]},
+          energy: {value: 0, turns: [0.5, 0.5, 0.5, 0.5]}
         }
       },
       {
@@ -134,7 +134,7 @@ export default
         },
         points: {
           food: {value: 0, turns: [0, 0, 0, 0]},
-          water: {value: 1, turns: [0.5, 1, 2, 4]},
+          water: {value: 0, turns: [0.5, 1, 2, 4]},
           waste: {value: 0, turns: [0, 0, 0, 0]},
           energy: {value: 0, turns: [0, 0, 0, 0]}
         }
@@ -149,7 +149,7 @@ export default
         },
         points: {
           food: {value: 0, turns: [0, 0, 0, 0]},
-          water: {value: -1, turns: [0.5, 0.5, 0.5, 0.5]},
+          water: {value: 0, turns: [0.5, 0.5, 0.5, 0.5]},
           waste: {value: 0, turns: [0, 0, 0, 0]},
           energy: {value: 0, turns: [0, 0, 0, 0]}
         }

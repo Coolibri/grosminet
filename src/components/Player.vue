@@ -66,6 +66,11 @@
 <style scoped>
 
 
+  h4 {
+    margin-top: 7px;
+    margin-bottom: 3px;
+  }
+
   .unactive {
     background: lightgrey;
   }
