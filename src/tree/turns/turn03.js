@@ -10,9 +10,9 @@ export default
         label: 'OGM',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personnes n\'aime les OGM ?'
+            return 'Personne n\'aime les OGM ?'
           } else {
-            return 'well, pour ' + nbP + ' pays ce sera OGM ! '
+            return 'Bien, pour ' + nbP + ' pays ce sera OGM ! '
           }
         },
         points: {
@@ -23,12 +23,12 @@ export default
         }
       },
       {
-        label: 'engrais',
+        label: 'Engrais',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne n\'a choisi les engrais comme solutions '
+            return 'Personne n\'a choisi les engrais comme solution '
           }
-          return 'arosons les plentations de ' + nbP + ' pays d\'engrais. '
+          return 'Arrosons les plantations de ' + nbP + ' pays d\'engrais. '
         },
         points: {
           food: {value: 4, turns: [1, 1, 0.75, 0.5]},
@@ -38,12 +38,12 @@ export default
         }
       },
       {
-        label: 'élevage de bétail intensif',
+        label: 'Elevage de bétail intensif',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne n\'a choisi l\'élevage de bétail intensif !'
+            return 'Personne n\'a choisi l\'élevage de bétail intensif !'
           }
-          return nbP + ' a choisi d\'élever intesivement des poules !'
+          return nbP + ' ont choisi d\'élever intensivement des poules !'
         },
         points: {
           food: {value: 4, turns: [1, 0.5, 0, -0.5]},
@@ -56,15 +56,15 @@ export default
     childs: childs1
   },
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi d\'intensifier la production des centrales nucléaires! Regardons les résultats sur votre planète ! L\'énergie est revenu partout dans toute la ville ! Vous décidez donc de remettre la production d\'éléctricité à un niveau normal, ce qui vous prendra quelques tours. Cependant, la production a rejeté beaucoup de CO2 dans l\'air. De plus, faites attentions, le nombre de déchets nuélaires semblent augmenter... ! Que souhaitez vous faire? ',
+    text: 'Pour la plupart d\'entre vous, vous avez choisi d\'intensifier la production des centrales nucléaires! Regardons les résultats sur votre planète ! L\'énergie est revenue partout dans la ville ! Vous décidez donc de remettre la production d\'éléctricité à un niveau normal, ce qui vous prendra quelques tours. Cependant, la production a rejeté beaucoup de CO2 dans l\'air. De plus, faites attention, le nombre de déchets nucléaires semble augmenter... ! Que souhaitez-vous faire? ',
     choices: [
       {
-        label: 'Rendre les transports en commun gratuit.',
+        label: 'Rendre les transports en commun gratuits.',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'Personne ne décide de rendre les transports en commum gratuit.'
+            return 'Personne ne décide de rendre les transports en commun gratuits.'
           } else {
-            return 'Pour ' + nbP + ' pays, les transports en commun deviennent gratuit pendant quelques temps ! '
+            return 'Pour ' + nbP + ' pays, les transports en commun deviennent gratuits pendant quelques temps ! '
           }
         },
         points: {
@@ -80,7 +80,7 @@ export default
           if (nbP === 0) {
             return 'Personne n\'investit dans les voitures électriques.'
           } else {
-            return 'Pour ' + nbP + ' pays, on investir dans les voitures électriques! '
+            return 'Pour ' + nbP + ' pays, on investit dans les voitures électriques! '
           }
         },
         points: {
@@ -91,12 +91,12 @@ export default
         }
       },
       {
-        label: 's\'occuper des déchets nucléaires',
+        label: 'S\'occuper des déchets nucléaires',
         value: (nbP) => {
           if (nbP === 0) {
             return 'Personne n\'investit dans les voitures électriques.'
           } else {
-            return 'Pour ' + nbP + ' pays, on investir dans les voitures électriques! '
+            return 'Pour ' + nbP + ' pays, on investit dans les voitures électriques! '
           }
         },
         points: {

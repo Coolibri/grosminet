@@ -1,27 +1,27 @@
 export default [
   {
-    text: 'most of you chose OGM, so let\'s see OGM results on planet !',
+    text: 'La plupart a choisi les OGM, regardons les effets des OGM sur la planète !',
     choices: [
       {
-        label: 'Beer',
+        label: 'Bière',
         value: (pName) => {
-          return pName + ' make a great choice ! '
+          return pName + ' a fait un super choix ! '
         }
       },
       {
-        label: 'Water',
+        label: 'Eau',
         value: (pName) => {
-          return 'pour une bonne santée, ' + pName + 'choisis l\'eau et c\'est raisonnable'
+          return 'Pour une bonne santé, ' + pName + 'choisissent l\'eau et c\'est raisonnable'
         }
       },
       {
-        label: 'soda',
-        value: (pName) => { return pName + ' veux du sucre,plus de sucre ! ' }
+        label: 'Soda',
+        value: (pName) => { return pName + ' veulent du sucre, plus de sucre ! ' }
       }
     ]
   },
   {
-    text: 'most of you chose engrais, so let\'s see engrais results on planet !',
+    text: 'La plupart a choisi les engrais, regardons les effets des engrais sur la planète !',
     choices: [
       {
         label: 'Beer',

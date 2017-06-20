@@ -1,13 +1,13 @@
 export default
 [
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi de rendre les transports communs gratuit ! Bonne nouvelle : les gens utilisent moins leur voiture, et donc il y a moins de CO2 dégagé.  ',
+    text: 'Pour la plupart d\'entre vous, vous avez choisi de rendre les transports communs gratuits ! Bonne nouvelle : les gens utilisent moins leurs voitures, et donc il y a moins de CO2 dégagé.  ',
     choices: [
       {
         label: ' Incinérer les déchets',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personnes ne décide d\'incinérer les décherts ?'
+            return 'Personne ne décide d\'incinérer les décherts ?'
           } else {
             return 'Dans ' + nbP + ' pays, on brûle les déchets ! '
           }
@@ -20,10 +20,10 @@ export default
         }
       },
       {
-        label: 'Prioritiser le traitement du sol',
+        label: 'Prioriser le traitement du sol',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne ne s\'occupe du sol ? '
+            return 'Personne ne s\'occupe du sol ? '
           }
           return 'Traitons le sol dans ' + nbP + ' pays. '
         },
@@ -35,10 +35,10 @@ export default
         }
       },
       {
-        label: 'Prioritiser le traitement du sol',
+        label: 'Prioriser le traitement du sol',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne ne s\'occupe du sol ? '
+            return 'Personne ne s\'occupe du sol ? '
           }
           return 'Traitons le sol dans ' + nbP + ' pays. '
         },
@@ -53,7 +53,7 @@ export default
     childs: null
   },
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi d\'inciter vos habitants à acheter des voitures électriques. Ceci augmente votre demande en energie, comment y répondre ? ',
+    text: 'Pour la plupart d\'entre vous, vous avez choisi d\'inciter vos habitants à acheter des voitures électriques. Ceci augmente votre demande en energie, comment y répondre ? ',
     choices: [
       {
         label: 'Eoliennes',
@@ -75,7 +75,7 @@ export default
         label: 'Nucléaire',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne n\'a choisi le nucléaire '
+            return 'Personne n\'a choisi le nucléaire '
           }
           return '' + nbP + ' pays construisent des centrales nucléaires. '
         },
@@ -105,13 +105,13 @@ export default
     childs: null
   },
   {
-    text: 'Pour la plus part d\'entre vous, vous avez choisi de vous occuper des déchets nucléaires. Que souhaitez vous faire? ',
+    text: 'Pour la plus part d\'entre vous, vous avez choisi de vous occuper des déchets nucléaires. Que souhaitez-vous faire? ',
     choices: [
       {
         label: 'Rien',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personnes ne fait rien ?'
+            return 'Personnes ne fait rien ?'
           } else {
             return nbP + ' pays décide de ne rien faire ! '
           }
@@ -124,7 +124,7 @@ export default
         }
       },
       {
-        label: 'boiser des arbres',
+        label: 'Planter des arbres',
         value: (nbP) => {
           if (nbP === 0) {
             return 'personne ne replante d\'arbre. '
@@ -139,12 +139,12 @@ export default
         }
       },
       {
-        label: 'Transport gratuit',
+        label: 'Transports gratuits',
         value: (nbP) => {
           if (nbP === 0) {
-            return 'personne ne rend les transports en commun gratuit!'
+            return 'Personne ne rend les transports en commun gratuits !'
           }
-          return nbP + ' pays rendent leur transports gratuit 2 semaines dans l\'année !'
+          return nbP + ' pays rendent leur transports gratuits 2 semaines dans l\'année !'
         },
         points: {
           food: {value: 0, turns: [0, 0, 0, 0]},
