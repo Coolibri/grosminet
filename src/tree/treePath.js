@@ -1,52 +1,52 @@
-import childs from './turns/turn01'
+import childs from './turns/turn01bis'
 
 export default {
-  text: 'Bienvenu sur votre planète, pb de surpopulation et donc de famine, que faire ?',
+  text: 'Bienvenue sur votre planète, l\'eau y est douce et vous y installez vos pays. Cependant, au fil des ans, vous commencez chacun à produire trop de déchets. Comment allez-vous gérer leur évacuation des villes ?',
   choices: [
     {
-      label: 'OGM',
+      label: 'Décharges en plein air',
       value: (nbP) => {
         if (nbP === 0) {
-          return 'personnes n\'aime les OGM ?'
+          return 'Personne ne choisit les décharges en plein air.'
         } else {
-          return 'well, pour ' + nbP + ' pays ce sera OGM ! '
+          return ' ' + nbP + ' pays choisissent les décharges en plein air ! '
         }
       },
       points: {
-        food: {value: 4, turns: [1, 0.5, 0, -0.5]},
-        water: {value: 0, turns: [0, 0, 0, 0]},
-        waste: {value: 0, turns: [0, 0, 0, 0]},
-        energy: {value: -2, turns: [1, 0, 0, 0]}
-      }
-    },
-    {
-      label: 'engrais',
-      value: (nbP) => {
-        if (nbP === 0) {
-          return 'personne n\'a choisi les engrais comme solutions '
-        }
-        return 'arosons les plentations de ' + nbP + ' pays d\'engrais. '
-      },
-      points: {
-        food: {value: 4, turns: [1, 1, 0.75, 0.5]},
-        water: {value: -5, turns: [0.5, 1, 0.25, 0]},
-        waste: {value: -2, turns: [0, 0, 0.5, 1]},
+        food: {value: 1, turns: [0, 0, -0.5, -1]},
+        water: {value: 1, turns: [0, 0, -0.5, 1]},
+        waste: {value: 1, turns: [1, 1, 0, 0]},
         energy: {value: 0, turns: [1, 0, 0, 0]}
       }
     },
     {
-      label: 'test',
+      label: 'Incinération des déchets',
       value: (nbP) => {
-        if (!nbP) {
-          return 'personne ne peux test !'
+        if (nbP === 0) {
+          return 'Personne ne choisit l\'incinération des déchets. '
         }
-        return 'ceci est un test selon ' + nbP + ' de joueurs. '
+        return 'Des usines d\'incinération sont construites dans ' + nbP + ' pays. Elles permettent de plus de produire de l\'énergie, mais vont doucement polluer l\'air.  '
       },
       points: {
-        food: {value: 4, turns: [1, 0.5, 0, -0.5]},
-        water: {value: 0, turns: [0, 0, 0, 0]},
-        waste: {value: 0, turns: [0, 0, 0, 0]},
-        energy: {value: -2, turns: [1, 0, 0, 0]}
+        food: {value: 1, turns: [0, 0, 0, -0.5]},
+        water: {value: 1, turns: [0, 0, 0, -0.5]},
+        waste: {value: 3, turns: [1, 1, 1, 1]},
+        energy: {value: 2, turns: [0.5, 0.5, 0.5, 0.5]}
+      }
+    },
+    {
+      label: 'Enfouissemment des déchets',
+      value: (nbP) => {
+        if (!nbP) {
+          return 'Personne ne choisir d\'enterrer les déchets'
+        }
+        return ' ' + nbP + ' joueurs décident d\'enterrer les déchets. '
+      },
+      points: {
+        food: {value: -2, turns: [0, 0.5, 0.5, 1]},
+        water: {value: -3, turns: [0, 0.5, 1, 2]},
+        waste: {value: 2, turns: [1, 0.5, 0, 0]},
+        energy: {value: 0, turns: [0, 0, 0, 0]}
       }
     }
   ],

@@ -15,6 +15,12 @@
         <p>Fin du scenario</p>
         <p>{{ state }}</p>
         <p>global {{ global }}</p>
+
+        <hr/>
+        <h5>history</h5>
+        <p v-for="choice in choicesHistory">
+          {{ choice.currentText }}
+        </p>
       </div>
     </div>
 
@@ -87,6 +93,7 @@
 
           this.choicesHistory.push({
             selected: selected,
+            currentText: TreeLoader.getCurrentTurn().text,
             count: JSON.parse(JSON.stringify(count)),
             choices: this.currentChoices,
             selector: this.choicesSelector

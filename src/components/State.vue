@@ -1,16 +1,20 @@
 <template>
-  <div class="sensors" :class="{ global: global, 'global-none': !global }">
-    <div>
-      <label>Water</label><input class="water" type="range" :value="state.water" disabled/>
+  <div class="sensors-wrapper" :class="{ global: global, 'global-none': !global }">
+    <div class="sensors">
+      <div>
+        <label>Water</label><input class="water" type="range" :value="state.water" disabled/>
+      </div>
+      <div>
+        <label>Waste</label><input class="waste" type="range" :value="state.waste" disabled/>
+      </div>
     </div>
-    <div>
-      <label>Waste</label><input class="waste" type="range" :value="state.waste" disabled/>
-    </div>
-    <div>
-      <label>Energy</label><input class="energy" type="range" :value="state.energy" disabled/>
-    </div>
-    <div>
-      <label>Food</label><input class="food" type="range" :value="state.food" disabled/>
+    <div class="sensors">
+      <div>
+        <label>Energy</label><input class="energy" type="range" :value="state.energy" disabled/>
+      </div>
+      <div>
+        <label>Food</label><input class="food" type="range" :value="state.food" disabled/>
+      </div>
     </div>
   </div>
 </template>
@@ -26,12 +30,19 @@
 </script>
 
 <style scoped>
+  .sensors-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+  }
   .sensors {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: flex-start;
     height: 120px;
+    width:49%;
   }
 
   div.global {
@@ -41,7 +52,7 @@
   .sensors div {
     box-sizing: border-box;
     flex: 1;
-    width: 50%;
+    width: 100%;
     height: 60px;
     display: block; /* IE fix */
   }
