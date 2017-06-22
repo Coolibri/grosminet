@@ -33,6 +33,21 @@ export default
           waste: {value: -1, turns: [1, 1, 1, 1]},
           energy: {value: -1, turns: [2, 1, 0.5, -2]}
         }
+      },
+      {
+        label: 'Prioriser le traitement du sol',
+        value: (nbP) => {
+          if (nbP === 0) {
+            return 'Personne ne s\'occupe du sol ? '
+          }
+          return 'Traitons le sol dans ' + nbP + ' pays. '
+        },
+        points: {
+          food: {value: 0, turns: [0, 0, 0, 0]},
+          water: {value: 1, turns: [1.5, 2, 3, 1]},
+          waste: {value: -1, turns: [1, 1, 1, 1]},
+          energy: {value: -1, turns: [2, 1, 0.5, -2]}
+        }
       }
     ],
     childs: null
@@ -53,6 +68,22 @@ export default
           water: {value: 1, turns: [1.5, 2, 3, 1]},
           waste: {value: -1, turns: [1, 1, 1, 1]},
           energy: {value: -1, turns: [2, 1, 0.5, -2]}
+        }
+      },
+      {
+        label: 'Planter de nouveaux arbres ',
+        value: (nbP) => {
+          if (nbP === 0) {
+            return 'Personne ne plante d\'arbres.'
+          } else {
+            return 'Pour ' + nbP + ' pays, on plante des arbres ! '
+          }
+        },
+        points: {
+          food: {value: 0, turns: [0, 0, 0, 0]},
+          water: {value: 1, turns: [0.5, 1, 2, 4]},
+          waste: {value: 0, turns: [0, 0, 0, 0]},
+          energy: {value: 0, turns: [0, 0, 0, 0]}
         }
       },
       {
