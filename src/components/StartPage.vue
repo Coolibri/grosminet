@@ -5,9 +5,9 @@
       <input
         type="text"
         v-model="playerName"
-        placeholder="nom du nouveau joueur"
+        :placeholder="$t('startpage.placeholder')"
         @keyup.enter="addPlayer"/>
-      <button v-on:click="addPlayer()">ajouter le joueur</button>
+      <button v-on:click="addPlayer()">{{ $t('startpage.buttons.add') }}</button>
     </form>
     <hr/>
     <ul>
@@ -17,7 +17,9 @@
         {{ player.name }}
       </li>
     </ul>
-    <button class="btn btn-lg btn-primary" id="start-game-btn" v-on:click="enterTheGame()">Démarrer le jeu</button>
+    <button class="btn btn-lg btn-primary" id="start-game-btn" v-on:click="enterTheGame()">
+      {{ $t('startpage.buttons.start') }}
+    </button>
   </div>
 </template>
 
@@ -52,8 +54,8 @@
 
 <style scoped>
   .start-page ul {
-    margin:5px;
-    padding-left:0;
+    margin: 5px;
+    padding-left: 0;
   }
 
   .start-page ul li {
@@ -63,11 +65,11 @@
   }
 
   .btn-primary {
-    font-size:2em;
-    padding:5px;
+    font-size: 2em;
+    padding: 5px;
   }
 
   hr {
-    width:90%;
+    width: 90%;
   }
 </style>
