@@ -154,7 +154,7 @@
     justify-content: space-between;
 
     /* background: linear-gradient(to top, rgb(0.8,0.8,0.8),white); */
-    background: #e0f8f1;
+    background: #000033;
   }
 
   .messages {

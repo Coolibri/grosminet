@@ -2,7 +2,7 @@
   <div class="sensors-wrapper" :class="{ global: global, 'global-none': !global }">
     <div class="sensors">
       <div>
-        <label>Water</label><input class="water" type="range" :value="state.water" disabled/>
+        <game-range class="water" :value="state.water" :min-color="'darkblue'" :max-color="'deepskyblue'"></game-range>
       </div>
       <div>
         <label>Waste</label><input class="waste" type="range" :value="state.waste" disabled/>
@@ -20,7 +20,9 @@
 </template>
 
 <script>
+  import GameRange from './RangeComp'
   export default{
+    components: {GameRange},
     name: 'state',
     props: [
       'state',
@@ -73,43 +75,6 @@
   .global-none div input {
     width: 90%;
     display: inline-block;
-  }
-
-  input[type=range] {
-    -webkit-appearance: none;
-    margin: 18px 0;
-    width: 100%;
-  }
-
-  input[type=range]:focus {
-    outline: none;
-  }
-
-  input[type=range]::-webkit-slider-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    border: 1px solid #000000;
-    height: 18px;
-    width: 16px;
-    border-radius: 3px;
-    background: #ffffff;
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -7px;
-  }
-
-  .global-none div input[type=range]::-webkit-slider-thumb {
-    height: 12px;
-    margin-top: -5px;
-    width: 8px;
-  }
-
-  input[type=range]::-webkit-slider-runnable-track {
-    height: 6px;
-    cursor: pointer;
-    animate: 0.2s;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    border-radius: 1.3px;
-    border: 0.2px solid #010101;
   }
 
   .water::-webkit-slider-runnable-track {
