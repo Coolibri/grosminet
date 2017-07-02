@@ -24,15 +24,14 @@
   }
 
   input[type=range]::-webkit-slider-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    border: 1px solid #000000;
     height: 18px;
-    width: 16px;
-    border-radius: 3px;
-    background: #ffffff;
+    width: 0;
+    border: 7px solid transparent;
+    border-top: 7px solid white;
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -7px;
+    transform: translate(0, -8px);
   }
 
   input[type=range]::-webkit-slider-thumb {

@@ -2,18 +2,18 @@
   <div class="sensors-wrapper" :class="{ global: global, 'global-none': !global }">
     <div class="sensors">
       <div>
-        <game-range class="water" :value="state.water" :min-color="'darkblue'" :max-color="'deepskyblue'"></game-range>
+        <game-range class="water" :value="state.water"></game-range>
       </div>
       <div>
-        <label>Waste</label><input class="waste" type="range" :value="state.waste" disabled/>
+        <game-range class="waste" :value="state.waste"></game-range>
       </div>
     </div>
     <div class="sensors">
       <div>
-        <label>Energy</label><input class="energy" type="range" :value="state.energy" disabled/>
+        <game-range class="energy" :value="state.energy"></game-range>
       </div>
       <div>
-        <label>Food</label><input class="food" type="range" :value="state.food" disabled/>
+        <game-range class="food" :value="state.food"></game-range>
       </div>
     </div>
   </div>
