@@ -34,9 +34,9 @@
 </template>
 
 <script>
-  import PlanetState from './PlanetState'
-  import Player from './Player'
-  import Messages from './Messages'
+  import PlanetState from './Game/PlanetState'
+  import Player from './Game/Player'
+  import Messages from './Game/Messages'
   import DataPasser from '@/dataPasser'
   import TreeLoader from '@/tree/treeLoader'
   import PointsCompanion from '@/pointsCompanion'
@@ -135,13 +135,6 @@
 </script>
 
 <style scoped>
-  @import url('https://fonts.googleapis.com/css?family=Puritan:400,700');
-
-  * {
-    font-family: 'Puritan', sans-serif;
-    font-weight: 700;
-  }
-
   .messages {
     font-size: 1.2em;
   }
@@ -153,8 +146,7 @@
     flex-direction: column;
     justify-content: space-between;
 
-    /* background: linear-gradient(to top, rgb(0.8,0.8,0.8),white); */
-    background: #e0f8f1;
+    background: #000033;
   }
 
   .messages {

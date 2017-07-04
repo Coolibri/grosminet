@@ -1,5 +1,5 @@
 <template>
-  <div id="messages-list">
+  <div id="messages-list" ref="lists">
     <p v-for="message in messages">
       {{ message.text }}
     </p>
@@ -10,18 +10,17 @@
   export default {
     name: 'messages',
     props: ['messages'],
-    method: {
-      updated: function () {
-        const container = this.$el.querySelector('#messages-list')
-        container.scrollTop = container.scrollHeight
-      }
+    updated: function () {
+      const container = this.$refs.lists
+      container.scrollTop = container.scrollHeight
     }
   }
 </script>
 
 <style scoped>
   @import url('https://fonts.googleapis.com/css?family=Puritan:400,700');
-  *{
+
+  * {
     font-family: 'Puritan', sans-serif;
   }
 
@@ -33,6 +32,6 @@
     text-align: justify;
     font-family: 'Puritan', sans-serif;
     font-weight: 700;
-    font-size:1.05em;
+    font-size: 1.05em;
   }
 </style>
