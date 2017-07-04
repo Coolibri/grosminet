@@ -1,18 +1,19 @@
 <template>
   <div class="player" :class="{unactive: !active}">
-    <h4>{{ player.name }}</h4>
-    <player-life :val="state.waste"></player-life>
-    <state :global="false" :state="state"></state>
-    <div class="btn-group">
-      <button v-on:click="mkChoice(player.name, 0, choices[0])">
-        {{ choices[0].label }}
-      </button>
-      <button v-on:click="mkChoice(player.name, 1, choices[1])">
-        {{ choices[1].label }}
-      </button>
-      <button v-on:click="mkChoice(player.name, 2, choices[2])">
-        {{ choices[2].label }}
-      </button>
+    <player-life class="player-life" :val="state.waste"></player-life>
+    <div class="player-body">
+      <h4>{{ player.name }}</h4>
+      <div class="btn-group">
+        <button v-on:click="mkChoice(0, choices[0])">
+          {{ choices[0].label }}
+        </button>
+        <button v-on:click="mkChoice(1, choices[1])">
+          {{ choices[1].label }}
+        </button>
+        <button v-on:click="mkChoice(2, choices[2])">
+          {{ choices[2].label }}
+        </button>
+      </div>
     </div>
 
   </div>
@@ -25,7 +26,8 @@
   export default {
     components: {
       PlayerLife,
-      State},
+      State
+    },
     name: 'player',
     props: [
       'player',
@@ -54,11 +56,11 @@
       }
     },
     methods: {
-      mkChoice: function (pName, choiceNb, choice) {
+      mkChoice: function (choiceNb, choice) {
         if (this.active) {
           console.log('push that into history', choice)
           this.history.push(choice)
-          this.$emit('choice', pName, choiceNb, choice)
+          this.$emit('choice', this.player.name, choiceNb, choice)
           this.active = false
         }
       }
@@ -69,12 +71,27 @@
 <style scoped>
 
   .player {
-    border: 1px solid white;
     padding: 7px;
+    display:flex;
+    min-width:250px;
+    max-width:400px;
+  }
+
+
+  .player-life {
+    margin: 20px 5px 10px 5px;
+  }
+
+  .player-body {
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
 
   .player h4 {
     color: white;
+    text-align: left;
   }
 
   h4 {
@@ -91,17 +108,24 @@
   }
 
   .btn-group button {
-    border: 1px solid darkgrey;
-    margin: 0;
-    background: white;
+    border: 1px solid white;
+    margin: 5px 0;
+    background: transparent;
+    color: white;
     padding: 5px 8px;
     font-size: 1.05em;
+    font-weight: 100;
+    min-height: 45px;
+    width:100%;
     display: block;
-    width: 100%;
   }
 
   .btn-group button:hover {
-    background: lightgrey;
+    background: #0000E5;
+  }
+
+  .btn-group button:active {
+    background: #000040;
   }
 
   .unactive .btn-group button {
