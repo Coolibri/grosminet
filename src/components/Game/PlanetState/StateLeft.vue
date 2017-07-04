@@ -37,8 +37,8 @@
   }
 
   .sensors div label {
-    flex-basis: 20%;
-    width: 20%;
+    flex-basis: 30%;
+    width: 30%;
     color: white;
     text-align: right;
     padding-top:9px;
@@ -46,8 +46,8 @@
   }
 
   .global div .range {
-    width: 80%;
-    flex-basis: 80%;
+    width: 70%;
+    flex-basis: 70%;
   }
 
   .water::-webkit-slider-runnable-track {

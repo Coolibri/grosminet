@@ -28,10 +28,55 @@
     padding: 0;
   }
 
-  @import url('https://fonts.googleapis.com/css?family=Puritan:400,700');
+  /**
+   * http://applemusic.tumblr.com/
+   * https://jsfiddle.net/xq56dmrh/
+   */
+
+  /** Ultra Light */
+  @font-face {
+    font-family: "San Francisco";
+    font-weight: 100;
+    src: url("/static/font/SanFranciscoText-Light.otf");
+  }
+
+  /** Thin */
+  @font-face {
+    font-family: "San Francisco";
+    font-weight: 200;
+    src: url("/static/font/SanFranciscoText-Light.otf");
+  }
+
+  /** Regular */
+  @font-face {
+    font-family: "San Francisco";
+    font-weight: 400;
+    src: url("/static/font/SanFranciscoText-Regular.otf");
+  }
+
+  /** Medium */
+  @font-face {
+    font-family: "San Francisco";
+    font-weight: 500;
+    src: url("/static/font/SanFranciscoText-Medium.otf");
+  }
+
+  /** Semi Bold */
+  @font-face {
+    font-family: "San Francisco";
+    font-weight: 600;
+    src: url("/static/font/SanFranciscoText-Semibold.otf");
+  }
+
+  /** Bold */
+  @font-face {
+    font-family: "San Francisco";
+    font-weight: 700;
+    src: url("/static/font/SanFranciscoText-Bold.otf");
+  }
 
   * {
-    font-family: 'Puritan', sans-serif;
+    font-family: 'San Francisco', sans-serif;
     font-weight: 700;
   }
 </style>

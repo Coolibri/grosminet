@@ -135,13 +135,6 @@
 </script>
 
 <style scoped>
-  @import url('https://fonts.googleapis.com/css?family=Puritan:400,700');
-
-  * {
-    font-family: 'Puritan', sans-serif;
-    font-weight: 700;
-  }
-
   .messages {
     font-size: 1.2em;
   }
@@ -153,7 +146,6 @@
     flex-direction: column;
     justify-content: space-between;
 
-    /* background: linear-gradient(to top, rgb(0.8,0.8,0.8),white); */
     background: #000033;
   }
 
