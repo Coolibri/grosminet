@@ -2,7 +2,7 @@
   <div class="player" :class="{unactive: !active}">
     <player-life class="player-life" :val="state.waste"></player-life>
     <div class="player-body">
-      <h4>State of {{ player.name }}'s planet</h4>
+      <h4>{{$t('player.name', {name: player.name})}}</h4>
       <div class="btn-group">
         <button v-on:click="mkChoice(0, choices[0])">
           {{ choices[0].label }}
@@ -72,19 +72,18 @@
 
   .player {
     padding: 7px;
-    display:flex;
-    min-width:250px;
-    max-width:400px;
+    display: flex;
+    min-width: 250px;
+    max-width: 400px;
   }
-
 
   .player-life {
     margin: 20px 5px 10px 5px;
   }
 
   .player-body {
-    width:100%;
-    display:flex;
+    width: 100%;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
   }
@@ -116,7 +115,7 @@
     font-size: 1.05em;
     font-weight: 100;
     min-height: 45px;
-    width:100%;
+    width: 100%;
     display: block;
   }
 

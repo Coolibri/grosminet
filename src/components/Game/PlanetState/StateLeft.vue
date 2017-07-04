@@ -1,11 +1,11 @@
 <template>
   <div class="sensors">
     <div>
-      <label for="food-range">Food</label>
+      <label for="food-range">{{ $t('states.food') }}</label>
       <game-range id="food-range" class="food range" :value="state.food"></game-range>
     </div>
     <div>
-      <label for="water-range">Water</label>
+      <label for="water-range">{{ $t('states.waste') }}</label>
       <game-range id="water-range" class="water range" :value="state.water"></game-range>
     </div>
   </div>

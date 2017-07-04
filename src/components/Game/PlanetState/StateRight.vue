@@ -1,11 +1,11 @@
 <template>
   <div class="sensors">
     <div>
-      <label for="food-range">Energy</label>
+      <label for="food-range">{{ $t('states.energy') }}</label>
       <game-range id="food-range" class="energy range" :value="state.energy"></game-range>
     </div>
     <div>
-      <label for="water-range">Waste</label>
+      <label for="water-range">{{ $t('states.waste') }}</label>
       <game-range id="water-range" class="waste range" :value="state.waste"></game-range>
     </div>
   </div>
@@ -41,7 +41,7 @@
     width: 20%;
     color: white;
     text-align: left;
-    padding-top:9px;
+    padding-top: 9px;
     padding-left: 10px;
   }
 
