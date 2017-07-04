@@ -43,19 +43,20 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-items: flex-start;
-    height: 120px;
+    height: 60px;
+    margin: 5px 0;
     width:49%;
   }
 
   div.global {
-    height: 120px;
+    height: 80px;
   }
 
   .sensors div {
     box-sizing: border-box;
     flex: 1;
     width: 100%;
-    height: 60px;
+    height: 30px;
     display: block; /* IE fix */
   }
 

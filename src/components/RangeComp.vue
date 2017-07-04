@@ -15,7 +15,7 @@
 
   input[type=range] {
     -webkit-appearance: none;
-    margin: 18px 0;
+    margin: 15px 0;
     width: 100%;
   }
 
@@ -24,24 +24,24 @@
   }
 
   input[type=range]::-webkit-slider-thumb {
-    height: 18px;
+    height: 0;
     width: 0;
-    border: 7px solid transparent;
-    border-top: 7px solid white;
+    border: 5px solid transparent;
+    border-top: 5px solid white;
     cursor: pointer;
     -webkit-appearance: none;
-    margin-top: -7px;
+    margin-top: -5px;
     transform: translate(0, -8px);
   }
 
   input[type=range]::-webkit-slider-thumb {
-    height: 12px;
+    height: 9px;
     margin-top: -5px;
-    width: 8px;
+    width: 6px;
   }
 
   input[type=range]::-webkit-slider-runnable-track {
-    height: 6px;
+    height: 5px;
     cursor: pointer;
     animate: 0.2s;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;

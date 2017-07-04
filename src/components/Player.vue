@@ -1,7 +1,7 @@
 <template>
   <div class="player" :class="{unactive: !active}">
     <h4>{{ player.name }}</h4>
-    <hr/>
+    <player-life :val="state.waste"></player-life>
     <state :global="false" :state="state"></state>
     <div class="btn-group">
       <button v-on:click="mkChoice(player.name, 0, choices[0])">
@@ -21,8 +21,11 @@
 <script>
   import State from './State'
   import PointsCompanion from '@/pointsCompanion'
+  import PlayerLife from './PlayerLife'
   export default {
-    components: {State},
+    components: {
+      PlayerLife,
+      State},
     name: 'player',
     props: [
       'player',
@@ -65,6 +68,14 @@
 
 <style scoped>
 
+  .player {
+    border: 1px solid white;
+    padding: 7px;
+  }
+
+  .player h4 {
+    color: white;
+  }
 
   h4 {
     margin-top: 7px;
@@ -95,16 +106,6 @@
 
   .unactive .btn-group button {
     background: lightgrey;
-  }
-
-  .btn-group button:first-child {
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-  }
-
-  .btn-group button:last-child {
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
   }
 
   * {
