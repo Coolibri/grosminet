@@ -47,7 +47,7 @@
           if (i >= 12 - barValue) {
             $spans[i].style.background = $spans[i].dataset.color
           } else {
-            $spans[i].style.background = 'transparent'
+            $spans[i].style.background = '#00001c'
           }
         }
       }

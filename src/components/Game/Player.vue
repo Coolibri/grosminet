@@ -2,7 +2,7 @@
   <div class="player" :class="{unactive: !active}">
     <player-life class="player-life" :val="state.waste"></player-life>
     <div class="player-body">
-      <h4>{{ player.name }}</h4>
+      <h4>State of {{ player.name }}'s planet</h4>
       <div class="btn-group">
         <button v-on:click="mkChoice(0, choices[0])">
           {{ choices[0].label }}
@@ -20,9 +20,9 @@
 </template>
 
 <script>
-  import State from './State'
+  import State from './PlanetState/StateRight'
   import PointsCompanion from '@/pointsCompanion'
-  import PlayerLife from './PlayerLife'
+  import PlayerLife from './Player/PlayerLife'
   export default {
     components: {
       PlayerLife,

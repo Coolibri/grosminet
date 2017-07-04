@@ -34,9 +34,9 @@
 </template>
 
 <script>
-  import PlanetState from './PlanetState'
-  import Player from './Player'
-  import Messages from './Messages'
+  import PlanetState from './Game/PlanetState'
+  import Player from './Game/Player'
+  import Messages from './Game/Messages'
   import DataPasser from '@/dataPasser'
   import TreeLoader from '@/tree/treeLoader'
   import PointsCompanion from '@/pointsCompanion'

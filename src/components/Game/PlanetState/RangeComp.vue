@@ -41,11 +41,10 @@
   }
 
   input[type=range]::-webkit-slider-runnable-track {
-    height: 5px;
+    height: 8px;
     cursor: pointer;
     animate: 0.2s;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     border-radius: 1.3px;
-    border: 0.2px solid #010101;
   }
 </style>
