@@ -1,7 +1,7 @@
 // import childs from './l1/t1'
 
 export default {
-  id: 't0',
+  id: 't1.c2',
   choices: [
     {
       id: 'c0',
