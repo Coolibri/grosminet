@@ -91,6 +91,8 @@
       this.turnId = TreeLoader.getCurrentTurn().id
       this.messages.push(this.turnId)
       this.currentChoices = TreeLoader.getTreeRoot().choices
+    },
+    mounted: function () {
       tour.start()
     },
     methods: {
@@ -174,8 +176,8 @@
   }
 
   .players {
-    margin-top:10px;
-    border:1px solid #000033;
+    margin-top: 10px;
+    border: 1px solid #000033;
     display: flex;
     justify-content: space-around;
   }
