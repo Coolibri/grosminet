@@ -1,21 +1,20 @@
 <template>
   <div class="player" :class="{unactive: !active}">
-    <player-life class="player-life" :val="state.waste"></player-life>
+    <player-life class="player-life" :val="life"></player-life>
     <div class="player-body">
       <h4>{{$t('player.name', {name: player.name})}}</h4>
       <div class="btn-group">
         <button v-on:click="mkChoice(0, choices[0])">
-          {{ choices[0].label }}
+          {{ $t(pre + choices[0].id) }}
         </button>
         <button v-on:click="mkChoice(1, choices[1])">
-          {{ choices[1].label }}
+          {{ $t(pre + choices[1].id) }}
         </button>
         <button v-on:click="mkChoice(2, choices[2])">
-          {{ choices[2].label }}
+          {{ $t(pre + choices[2].id) }}
         </button>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -31,8 +30,18 @@
     name: 'player',
     props: [
       'player',
-      'choices'
+      'choices',
+      'turnId'
     ],
+    computed: {
+      pre: function () {
+        return 'game.turns.' + this.turnId + '.choices.'
+      },
+      life: function () {
+        console.log(PointsCompanion.calcPlayerLife(this.state))
+        return PointsCompanion.calcPlayerLife(this.state)
+      }
+    },
     data: function () {
       return {
         name: 'default',
