@@ -1,6 +1,6 @@
 <template>
   <div class="player" :class="{unactive: !active}">
-    <player-life class="player-life" :val="state.waste"></player-life>
+    <player-life class="player-life" :val="life"></player-life>
     <div class="player-body">
       <h4>{{$t('player.name', {name: player.name})}}</h4>
       <div class="btn-group">
@@ -15,7 +15,6 @@
         </button>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -37,6 +36,10 @@
     computed: {
       pre: function () {
         return 'game.turns.' + this.turnId + '.choices.'
+      },
+      life: function () {
+        console.log(PointsCompanion.calcPlayerLife(this.state))
+        return PointsCompanion.calcPlayerLife(this.state)
       }
     },
     data: function () {

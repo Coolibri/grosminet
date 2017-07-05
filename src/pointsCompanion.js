@@ -40,12 +40,26 @@ export default {
     const state = JSON.parse(JSON.stringify(currentState)) // hard clone
     for (let i = 0; i < 4 && playerHistory.length - i !== 0; i++) {
       state.food += parseInt(parseFloat(playerHistory[i].points.food.value) * parseFloat(playerHistory[i].points.food.turns[3 - i]))
+      state.food = state.food > 100 ? 100 : state.food
       state.energy += parseInt(parseFloat(playerHistory[i].points.energy.value) * parseFloat(playerHistory[i].points.energy.turns[3 - i]))
+      state.energy = state.energy > 100 ? 100 : state.energy
       state.waste += parseInt(parseFloat(playerHistory[i].points.waste.value) * parseFloat(playerHistory[i].points.waste.turns[3 - i]))
+      state.waste = state.waste > 100 ? 100 : state.waste
       state.water += parseInt(parseFloat(playerHistory[i].points.water.value) * parseFloat(playerHistory[i].points.water.turns[3 - i]))
+      state.water = state.water > 100 ? 100 : state.water
     }
 
     return state
+  },
+
+  calcPlayerLife: function (playerState) {
+    let add = 0
+    add += playerState.food
+    add += playerState.waste
+    add += playerState.energy
+    add += playerState.water
+
+    return Math.floor(add / 4)
   },
 
   /**
