@@ -28,7 +28,7 @@
   }
 
   #messages-list {
-    padding: 10px;
+    padding: 20px 200px;
   }
 
   p {

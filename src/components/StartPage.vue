@@ -1,7 +1,9 @@
 <template>
   <div class="start-page">
     <h1>Coolibri - prototype 1</h1>
-    <form v-on:submit.prevent="true;">
+    <form
+      v-if="players.length < 4"
+      v-on:submit.prevent="true;">
       <input
         type="text"
         v-model="playerName"
@@ -9,7 +11,7 @@
         @keyup.enter="addPlayer"/>
       <button v-on:click="addPlayer()">{{ $t('startpage.buttons.add') }}</button>
     </form>
-    <hr/>
+    <hr />
     <ul>
       <li
         v-for="player in players"

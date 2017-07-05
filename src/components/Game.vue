@@ -1,6 +1,8 @@
 <template>
   <div class="game">
 
+    <planet-state id="planet-state" :state="state" :global="global"></planet-state>
+
     <messages :messages="messages" class="messages" v-if="areWePlaying"></messages>
 
     <div class="messages" v-else>
@@ -24,15 +26,23 @@
       </div>
     </div>
 
-    <planet-state id="planet-state" :state="state" :global="global"></planet-state>
-
-    <div class="players">
+    <div v-if="areWePlaying" class="players">
       <player @choice="playerMkChoice"
               :choices="currentChoices"
               v-for="player in players"
               :player="player"
               :turn-id="turnId"
+              :end-turn="nextButtonText === 'next turn'"
               :key="player.name"></player>
+    </div>
+    <div v-if="areWePlaying" class="turn-flow">
+      <button
+        class="btn-next"
+        :disabled="nextButtonText === 'waiting'"
+        v-on:click="toTheNextTurn()"
+        ref="next">
+        {{ nextButtonText }}
+      </button>
     </div>
   </div>
 </template>
@@ -61,6 +71,8 @@
           energy: 50,
           food: 50
         },
+        nextButtonText: 'waiting',
+        nextSelected: -1,
         choicesCount: 0,
         currentChoices: [],
         choicesSelector: [],
@@ -116,17 +128,22 @@
             })
             this.areWePlaying = false
           } else {
-            TreeLoader.setNextTurn(selected)
-            this.turnId = TreeLoader.getCurrentTurn().id
-            this.messages.push(this.turnId)
-            this.resetTurn()
+            this.nextButtonText = 'next turn'
+            this.nextSelected = selected
           }
         }
+      },
+      toTheNextTurn: function () {
+        TreeLoader.setNextTurn(this.nextSelected)
+        this.turnId = TreeLoader.getCurrentTurn().id
+        this.messages.push(this.turnId)
+        this.resetTurn()
       },
       resetTurn: function () {
         this.currentChoices = TreeLoader.getCurrentTurn().choices
         this.choicesCount = 0
         this.nextMessage = ''
+        this.nextButtonText = 'waiting'
         this.choicesSelector = []
       }
     }
@@ -144,7 +161,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     background: #000033;
   }
 
@@ -156,12 +172,43 @@
   }
 
   .players {
+    margin-top:10px;
+    border:1px solid #000033;
     display: flex;
     justify-content: space-around;
   }
 
+  .turn-flow {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    text-align: right;
+  }
+
+  .turn-flow button {
+    font-size: 1.3em;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  .turn-flow button:not(:disabled)::after {
+    content: ' >';
+    color: white;
+  }
+
+  .turn-flow button:disabled {
+    color: grey;
+    font-weight: 400;
+  }
+
+  .turn-flow button:disabled::after {
+    content: '...';
+    color: white;
+  }
+
   #planet-state {
-    padding-top: 20px;
+    padding-top: 40px;
   }
 
 </style>

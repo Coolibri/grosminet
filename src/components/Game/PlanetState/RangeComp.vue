@@ -1,5 +1,5 @@
 <template>
-  <input type="range" v-model="value"/>
+  <input type="range" disabled v-model="value"/>
 </template>
 
 <script>

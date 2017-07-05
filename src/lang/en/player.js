@@ -1,3 +1,3 @@
 export default {
-  name: 'State of {name}\'s planet'
+  name: 'State of {name}\'s country'
 }

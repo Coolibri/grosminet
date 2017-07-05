@@ -3,16 +3,24 @@
     <player-life class="player-life" :val="life"></player-life>
     <div class="player-body">
       <h4>{{$t('player.name', {name: player.name})}}</h4>
-      <div class="btn-group">
-        <button v-on:click="mkChoice(0, choices[0])">
+      <div v-if="!endTurn" class="btn-group">
+        <button :class="{selected: !active && lastChoice === 0}" v-on:click="mkChoice(0, choices[0])">
           {{ $t(pre + choices[0].id) }}
         </button>
-        <button v-on:click="mkChoice(1, choices[1])">
+        <button :class="{selected: !active && lastChoice === 1}" v-on:click="mkChoice(1, choices[1])">
           {{ $t(pre + choices[1].id) }}
         </button>
-        <button v-on:click="mkChoice(2, choices[2])">
+        <button :class="{selected: !active && lastChoice === 2}" v-on:click="mkChoice(2, choices[2])">
           {{ $t(pre + choices[2].id) }}
         </button>
+      </div>
+      <div class="turn-result" v-else>
+        <ul>
+          <li>food : {{diff.food > 0 ? '+' + diff.food : diff.food}}</li>
+          <li>energy : {{diff.energy > 0 ? '+' + diff.energy : diff.energy}}</li>
+          <li>water : {{diff.water > 0 ? '+' + diff.water : diff.water}}</li>
+          <li>waste : {{diff.waste > 0 ? '+' + diff.waste : diff.waste}}</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -31,15 +39,12 @@
     props: [
       'player',
       'choices',
-      'turnId'
+      'turnId',
+      'endTurn'
     ],
     computed: {
       pre: function () {
         return 'game.turns.' + this.turnId + '.choices.'
-      },
-      life: function () {
-        console.log(PointsCompanion.calcPlayerLife(this.state))
-        return PointsCompanion.calcPlayerLife(this.state)
       }
     },
     data: function () {
@@ -52,22 +57,47 @@
           energy: 50,
           water: 50
         },
+        diff: {
+          food: 0,
+          waste: 0,
+          energy: 0,
+          water: 0
+        },
+        life: 0,
+        lastChoice: 0,
         active: true
       }
+    },
+    created: function () {
+      this.calcLife()
     },
     watch: {
       name: function () {
         return this.player.name
       },
-      choices: function () {
-        this.state = PointsCompanion.calcPlayerState(this.state, this.history)
-        this.active = true
+      endTurn: function (isTheEndOfTurn) {
+        if (isTheEndOfTurn) {
+          const playerState = PointsCompanion.calcPlayerState(this.state, this.history)
+          console.log(playerState)
+          this.state = playerState.state
+          this.diff = playerState.diff
+          this.active = true
+        }
+      },
+      state: function () {
+        this.calcLife()
+        console.log(this.player.name, this.life)
       }
     },
     methods: {
+      calcLife: function () {
+        console.log(PointsCompanion.calcPlayerLife(this.state))
+        this.life = PointsCompanion.calcPlayerLife(this.state)
+      },
       mkChoice: function (choiceNb, choice) {
         if (this.active) {
           console.log('push that into history', choice)
+          this.lastChoice = choiceNb
           this.history.push(choice)
           this.$emit('choice', this.player.name, choiceNb, choice)
           this.active = false
@@ -107,10 +137,6 @@
     margin-bottom: 3px;
   }
 
-  .unactive {
-    background: lightgrey;
-  }
-
   .btn-group {
     margin: 7px 0;
   }
@@ -136,8 +162,28 @@
     background: #000040;
   }
 
-  .unactive .btn-group button {
-    background: lightgrey;
+  .unactive {
+    border: 1px solid white;
+  }
+
+  .btn-group .selected {
+    background: #0000FF;
+    border-color: #0000BF;
+  }
+
+  .turn-result {
+    margin: 7px 0;
+    border: 1px solid white;
+  }
+
+  .turn-result ul {
+    list-style: none;
+    padding-left: 15px;
+  }
+
+  .turn-result ul li {
+    color: white;
+    text-align: left;
   }
 
   * {

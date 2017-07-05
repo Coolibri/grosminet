@@ -65,7 +65,7 @@
     props: ['state'],
     data () {
       return {
-        diameter: 400,
+        diameter: 325,
         rstate: {
           waste: 0,
           energy: 0,

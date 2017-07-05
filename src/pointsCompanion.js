@@ -32,12 +32,12 @@ export default {
   /**
    * compute the state of a country.
    *
-   * @param currentState actual player state.
+   * @param oldState actual player state.
    * @param playerHistory.
-   * @return state of four elements.
+   * @return {{state,diff:{food,energy,waste,water}}} of four elements.
    */
-  calcPlayerState: function (currentState, playerHistory) {
-    const state = JSON.parse(JSON.stringify(currentState)) // hard clone
+  calcPlayerState: function (oldState, playerHistory) {
+    const state = JSON.parse(JSON.stringify(oldState)) // hard clone
     for (let i = 0; i < 4 && playerHistory.length - i !== 0; i++) {
       state.food += parseInt(parseFloat(playerHistory[i].points.food.value) * parseFloat(playerHistory[i].points.food.turns[3 - i]))
       state.food = state.food > 100 ? 100 : state.food
@@ -49,7 +49,15 @@ export default {
       state.water = state.water > 100 ? 100 : state.water
     }
 
-    return state
+    return {
+      state: state,
+      diff: {
+        food: state.food - oldState.food,
+        energy: state.energy - oldState.energy,
+        waste: state.waste - oldState.waste,
+        water: state.water - oldState.water
+      }
+    }
   },
 
   calcPlayerLife: function (playerState) {
