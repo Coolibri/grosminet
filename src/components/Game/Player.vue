@@ -5,13 +5,13 @@
       <h4>{{$t('player.name', {name: player.name})}}</h4>
       <div class="btn-group">
         <button v-on:click="mkChoice(0, choices[0])">
-          {{ choices[0].label }}
+          {{ $t(pre + choices[0].id) }}
         </button>
         <button v-on:click="mkChoice(1, choices[1])">
-          {{ choices[1].label }}
+          {{ $t(pre + choices[1].id) }}
         </button>
         <button v-on:click="mkChoice(2, choices[2])">
-          {{ choices[2].label }}
+          {{ $t(pre + choices[2].id) }}
         </button>
       </div>
     </div>
@@ -31,8 +31,14 @@
     name: 'player',
     props: [
       'player',
-      'choices'
+      'choices',
+      'turnId'
     ],
+    computed: {
+      pre: function () {
+        return 'game.turns.' + this.turnId + '.choices.'
+      }
+    },
     data: function () {
       return {
         name: 'default',

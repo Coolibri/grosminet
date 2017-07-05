@@ -27,7 +27,11 @@
     <planet-state id="planet-state" :state="state" :global="global"></planet-state>
 
     <div class="players">
-      <player @choice="playerMkChoice" :choices="currentChoices" v-for="player in players" :player="player"
+      <player @choice="playerMkChoice"
+              :choices="currentChoices"
+              v-for="player in players"
+              :player="player"
+              :turn-id="turnId"
               :key="player.name"></player>
     </div>
   </div>
@@ -64,15 +68,15 @@
         nextMessage: '',
         messages: [],
         global: 50,
-        areWePlaying: true
+        areWePlaying: true,
+        turnId: null
       }
     },
     created: function () {
       this.players = DataPasser.getData()
       // start the game !
-      this.messages.push({
-        text: TreeLoader.getTreeRoot().text
-      })
+      this.turnId = TreeLoader.getCurrentTurn().id
+      this.messages.push(this.turnId)
       this.currentChoices = TreeLoader.getTreeRoot().choices
     },
     methods: {
@@ -84,10 +88,6 @@
           for (let i = 0; i < this.choicesSelector.length; i++) {
             count[this.choicesSelector[i].choiceNb]++
           }
-
-          this.nextMessage += this.currentChoices[0].value(count[0])
-          this.nextMessage += this.currentChoices[1].value(count[1])
-          this.nextMessage += this.currentChoices[2].value(count[2])
 
           let selected = count.indexOf(Math.max(...count))
 
