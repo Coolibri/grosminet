@@ -1,5 +1,6 @@
 <template>
   <div id="messages-list" ref="lists">
+    <p v-html="$t('game.start')"></p>
     <p v-for="message in messages">
       {{ message.text }}
     </p>
