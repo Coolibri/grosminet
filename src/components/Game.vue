@@ -35,13 +35,20 @@
               :end-turn="nextButtonText === 'next turn'"
               :key="player.name"></player>
     </div>
-    <div v-if="areWePlaying" class="turn-flow">
+    <div class="turn-flow">
       <button
+        v-if="areWePlaying"
         class="btn-next"
         :disabled="nextButtonText === 'waiting'"
         v-on:click="toTheNextTurn()"
         ref="next">
         {{ nextButtonText }}
+      </button>
+      <button
+        class="btn-next"
+        v-on:click="hardReload()"
+        v-else>
+        Play again
       </button>
     </div>
   </div>
@@ -149,6 +156,9 @@
         this.nextMessage = ''
         this.nextButtonText = 'waiting'
         this.choicesSelector = []
+      },
+      hardReload: function () {
+        window.location.replace('/')
       }
     }
   }
@@ -214,5 +224,4 @@
   #planet-state {
     padding-top: 40px;
   }
-
 </style>
