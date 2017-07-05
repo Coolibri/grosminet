@@ -54,6 +54,7 @@
   import DataPasser from '@/dataPasser'
   import TreeLoader from '@/tree/treeLoader'
   import PointsCompanion from '@/pointsCompanion'
+  import tour from '@/tuto/tuto'
 
   export default {
     components: {
@@ -90,6 +91,7 @@
       this.turnId = TreeLoader.getCurrentTurn().id
       this.messages.push(this.turnId)
       this.currentChoices = TreeLoader.getTreeRoot().choices
+      tour.start()
     },
     methods: {
       playerMkChoice: function (pName, choiceNb, choice) {
