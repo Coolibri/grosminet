@@ -1,9 +1,11 @@
 <template>
   <div id="messages-list" ref="lists">
     <p v-html="$t('game.start')"></p>
-    <p v-for="id in messages">
-      {{ $t('game.turns.' + id + '.text') }}
-    </p>
+    <div v-for="id in messages">
+      <hr/>
+      <h3>{{ $t('game.turns.' + id + '.headline') }}</h3>
+      <p>{{ $t('game.turns.' + id + '.text') }}</p>
+    </div>
   </div>
 </template>
 

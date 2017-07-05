@@ -93,7 +93,7 @@
 
           this.choicesHistory.push({
             selected: selected,
-            currentText: TreeLoader.getCurrentTurn().text,
+            currentText: TreeLoader.getCurrentTurn().id,
             count: JSON.parse(JSON.stringify(count)),
             choices: this.currentChoices,
             selector: this.choicesSelector
@@ -117,9 +117,8 @@
             this.areWePlaying = false
           } else {
             TreeLoader.setNextTurn(selected)
-            this.messages.push({
-              text: this.nextMessage + TreeLoader.getCurrentTurn().text
-            })
+            this.turnId = TreeLoader.getCurrentTurn().id
+            this.messages.push(this.turnId)
             this.resetTurn()
           }
         }

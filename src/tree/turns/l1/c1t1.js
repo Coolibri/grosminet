@@ -1,4 +1,4 @@
-import childs from './l1/t1'
+// import childs from './l1/t1'
 
 export default {
   id: 't0',
@@ -31,5 +31,5 @@ export default {
       }
     }
   ],
-  childs: childs
+  childs: null
 }
