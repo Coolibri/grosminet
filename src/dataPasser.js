@@ -14,6 +14,9 @@ export default (function () {
     },
     setData: function (data) {
       instance = data
+    },
+    reset: function () {
+      instance = createInstance()
     }
   }
 })()

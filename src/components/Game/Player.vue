@@ -40,7 +40,8 @@
       'player',
       'choices',
       'turnId',
-      'endTurn'
+      'endTurn',
+      'playing'
     ],
     computed: {
       pre: function () {
@@ -84,6 +85,17 @@
           this.active = true
         }
       },
+      playing: function (val) {
+        console.log('playing ?', val)
+        if (!val) {
+          console.log(val)
+          this.$emit('final', {
+            player: this.player,
+            history: this.history,
+            score: this.life
+          })
+        }
+      },
       state: function () {
         this.calcLife()
         console.log(this.player.name, this.life)
@@ -98,6 +110,7 @@
         if (this.active) {
           console.log('push that into history', choice)
           this.lastChoice = choiceNb
+          choice.turn = this.turnId
           this.history.push(choice)
           this.$emit('choice', this.player.name, choiceNb, choice)
           this.active = false
