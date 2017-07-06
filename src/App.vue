@@ -29,11 +29,6 @@
     padding: 0;
   }
 
-  /**
-   * http://applemusic.tumblr.com/
-   * https://jsfiddle.net/xq56dmrh/
-   */
-
   /** Ultra Light */
   @font-face {
     font-family: "San Francisco";
