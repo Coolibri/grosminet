@@ -1,4 +1,4 @@
-import TreeChoices from './treePath'
+import TreeChoices from './turns/t0'
 
 export default (function () {
   let treeRoot

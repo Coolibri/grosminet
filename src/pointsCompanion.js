@@ -32,20 +32,42 @@ export default {
   /**
    * compute the state of a country.
    *
-   * @param currentState actual player state.
+   * @param oldState actual player state.
    * @param playerHistory.
-   * @return state of four elements.
+   * @return {{state,diff:{food,energy,waste,water}}} of four elements.
    */
-  calcPlayerState: function (currentState, playerHistory) {
-    const state = JSON.parse(JSON.stringify(currentState)) // hard clone
+  calcPlayerState: function (oldState, playerHistory) {
+    const state = JSON.parse(JSON.stringify(oldState)) // hard clone
     for (let i = 0; i < 4 && playerHistory.length - i !== 0; i++) {
       state.food += parseInt(parseFloat(playerHistory[i].points.food.value) * parseFloat(playerHistory[i].points.food.turns[3 - i]))
+      state.food = state.food > 100 ? 100 : state.food
       state.energy += parseInt(parseFloat(playerHistory[i].points.energy.value) * parseFloat(playerHistory[i].points.energy.turns[3 - i]))
+      state.energy = state.energy > 100 ? 100 : state.energy
       state.waste += parseInt(parseFloat(playerHistory[i].points.waste.value) * parseFloat(playerHistory[i].points.waste.turns[3 - i]))
+      state.waste = state.waste > 100 ? 100 : state.waste
       state.water += parseInt(parseFloat(playerHistory[i].points.water.value) * parseFloat(playerHistory[i].points.water.turns[3 - i]))
+      state.water = state.water > 100 ? 100 : state.water
     }
 
-    return state
+    return {
+      state: state,
+      diff: {
+        food: state.food - oldState.food,
+        energy: state.energy - oldState.energy,
+        waste: state.waste - oldState.waste,
+        water: state.water - oldState.water
+      }
+    }
+  },
+
+  calcPlayerLife: function (playerState) {
+    let add = 0
+    add += playerState.food
+    add += playerState.waste
+    add += playerState.energy
+    add += playerState.water
+
+    return Math.floor(add / 4)
   },
 
   /**
@@ -83,6 +105,8 @@ export default {
    * @return boolean true if it's the end of the game.
    */
   isItTheEnd: function (global) {
+    console.log('is this the end ?', TreeLoader.getCurrentTurn().childs)
+    console.log('is this the end ?', global)
     if (TreeLoader.getCurrentTurn().childs === null) {
       return true
     }
