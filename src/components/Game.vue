@@ -5,30 +5,13 @@
 
     <messages :messages="messages" class="messages" v-if="areWePlaying"></messages>
 
-    <div class="messages" v-else>
-      <p>{{ nextMessage }} Fin du jeu !</p>
-      <div v-if="global < 5">
-        <p>La planète n'a pas survécu à votre rythme de vie</p>
-      </div>
-      <div v-else-if="global > 95">
-        <p>Vous avez gagné</p>
-      </div>
-      <div v-else>
-        <p>Fin du scenario</p>
-        <p>{{ state }}</p>
-        <p>global {{ global }}</p>
+    <end-game :history="playersHistories" :global="global" class="messages" v-else></end-game>
 
-        <hr/>
-        <h5>history</h5>
-        <p v-for="choice in choicesHistory">
-          {{ choice.currentText }}
-        </p>
-      </div>
-    </div>
-
-    <div v-if="areWePlaying" class="players">
+    <div :class="{hide: !areWePlaying}" class="players">
       <player @choice="playerMkChoice"
+              @final="pushPlayerHistory"
               :choices="currentChoices"
+              :playing="areWePlaying"
               v-for="player in players"
               :player="player"
               :turn-id="turnId"
@@ -62,9 +45,11 @@
   import TreeLoader from '@/tree/treeLoader'
   import PointsCompanion from '@/pointsCompanion'
   import tour from '@/tuto/tuto'
+  import EndGame from './Game/EndGame'
 
   export default {
     components: {
+      EndGame,
       Messages,
       PlanetState,
       Player
@@ -88,12 +73,19 @@
         nextMessage: '',
         messages: [],
         global: 50,
+        playersHistories: [],
         areWePlaying: true,
         turnId: null
       }
     },
     created: function () {
       this.players = DataPasser.getData()
+      if (this.players.length === 0) {
+        this.$router.push({
+          path: '/'
+        })
+      }
+      DataPasser.reset()
       // start the game !
       this.turnId = TreeLoader.getCurrentTurn().id
       this.messages.push(this.turnId)
@@ -103,6 +95,9 @@
       tour.start()
     },
     methods: {
+      pushPlayerHistory: function (pHistory) {
+        this.playersHistories.push(pHistory)
+      },
       playerMkChoice: function (pName, choiceNb, choice) {
         this.choicesSelector.push({from: pName, choiceNb: choiceNb, choice: choice})
         this.choicesCount++
@@ -137,6 +132,8 @@
             this.messages.push({
               text: this.nextMessage + 'fin du jeu'
             })
+
+            this.nextButtonText = 'end the game'
             this.areWePlaying = false
           } else {
             this.nextButtonText = 'next turn'
@@ -219,6 +216,10 @@
   .turn-flow button:disabled::after {
     content: '...';
     color: white;
+  }
+
+  .hide{
+    display: none;
   }
 
   #planet-state {

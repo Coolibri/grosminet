@@ -16,7 +16,8 @@ tour.addStep('global-planet', {
       text: 'Let\'s see this gauges',
       action: tour.next
     }
-  ]
+  ],
+  showCancelLink: true
 })
 
 tour.addStep('gauge', {
@@ -28,7 +29,8 @@ tour.addStep('gauge', {
       text: 'What about the big one ?',
       action: tour.next
     }
-  ]
+  ],
+  showCancelLink: true
 })
 
 tour.addStep('global-gauge', {
@@ -41,7 +43,8 @@ tour.addStep('global-gauge', {
       text: 'And me ?',
       action: tour.next
     }
-  ]
+  ],
+  showCancelLink: true
 })
 
 tour.addStep('player-global', {
@@ -53,7 +56,8 @@ tour.addStep('player-global', {
       text: 'and what happen at home ?',
       action: tour.next
     }
-  ]
+  ],
+  showCancelLink: true
 })
 
 tour.addStep('messages', {
@@ -65,7 +69,8 @@ tour.addStep('messages', {
       text: 'what\'s are my choices ?',
       action: tour.next
     }
-  ]
+  ],
+  showCancelLink: true
 })
 
 tour.addStep('choices', {
@@ -77,7 +82,8 @@ tour.addStep('choices', {
       text: 'and then ?',
       action: tour.next
     }
-  ]
+  ],
+  showCancelLink: true
 })
 
 tour.addStep('validate', {
@@ -89,7 +95,8 @@ tour.addStep('validate', {
       text: 'let\'s begin my journey',
       action: tour.next
     }
-  ]
+  ],
+  showCancelLink: true
 })
 
 export default tour
