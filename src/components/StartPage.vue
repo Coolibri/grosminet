@@ -1,6 +1,9 @@
 <template>
   <div class="start-page">
-    <h1>Coolibri - prototype 1.9</h1>
+    <div style="padding: 40px 30%;">
+      <div><img src="../assets/eccolo_blanc_2.png" height="100px"/></div>
+      <div style="text-align: right;">prototype 2 - by <img src="../assets/logo-vert.png" height="30px"/></div>
+    </div>
     <form
       v-if="players.length < 4"
       v-on:submit.prevent="true;">
@@ -9,9 +12,8 @@
         v-model="playerName"
         :placeholder="$t('startpage.placeholder')"
         @keyup.enter="addPlayer"/>
-      <button v-on:click="addPlayer()">{{ $t('startpage.buttons.add') }}</button>
+      <button style="cursor:pointer;" v-on:click="addPlayer()">{{ $t('startpage.buttons.add') }}</button>
     </form>
-    <hr/>
     <ul>
       <li
         v-for="player in players"
@@ -19,7 +21,7 @@
         {{ player.name }}
       </li>
     </ul>
-    <button class="btn btn-lg btn-primary" id="start-game-btn" v-on:click="enterTheGame()">
+    <button style="cursor:pointer; border-top: 0.2px solid darkgrey;" v-if="players.length > 0" class="btn btn-lg btn-primary" id="start-game-btn" v-on:click="enterTheGame()">
       {{ $t('startpage.buttons.start') }}
     </button>
 

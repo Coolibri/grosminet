@@ -1,6 +1,9 @@
 <template>
   <div class="game">
 
+    <a href="http://coolibri.io/"><img src="../assets/logo-vert.png" class="logo top-right"/></a>
+    <img src="../assets/eccolo_blanc_2.png" class="logo top-left"/>
+
     <planet-state id="planet-state" :state="state" :global="global"></planet-state>
 
     <messages :messages="messages" class="messages" v-if="areWePlaying"></messages>
@@ -218,11 +221,25 @@
     color: white;
   }
 
-  .hide{
+  .hide {
     display: none;
   }
 
   #planet-state {
     padding-top: 40px;
+  }
+
+  .logo {
+    height: 25px;
+    position: absolute;
+    left:5px;
+  }
+
+  .top-left{
+    top: 5px;
+  }
+
+  .top-right{
+    bottom:5px;
   }
 </style>
