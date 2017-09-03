@@ -1,8 +1,8 @@
 <template>
   <div class="start-page">
-    <div style="padding: 40px 30%;">
+    <div style="padding: 40px 35%;">
       <div><img src="../assets/eccolo_blanc_2.png" height="100px"/></div>
-      <div style="text-align: right;">prototype 2 - by <img src="../assets/logo-vert.png" height="30px"/></div>
+      <div style="text-align: right;">prototype 2 - by <a href="http://coolibri.io/"><img src="../assets/logo-vert.png" height="30px"/></a></div>
     </div>
     <form
       v-if="players.length < 4"
