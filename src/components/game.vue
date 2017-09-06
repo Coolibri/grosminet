@@ -1,15 +1,17 @@
 <template>
   <transition name="slide-fade">
-    <div>
-      <div><a href="#" v-on:click="router.go(-1)">back</a></div>
-      <div>Eccolo !</div>
+    <div id="game">
+      GAME !
     </div>
   </transition>
 </template>
 
 <script>
-  export default {}
+  export default {
+    name: 'game'
+  }
 </script>
 
 <style>
+
 </style>
