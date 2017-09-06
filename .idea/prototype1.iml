@@ -9,5 +9,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="karma-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="karma-chai-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="karma-chai-sinon-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="mocha-phantomjs-DefinitelyTyped" level="application" />
   </component>
 </module>

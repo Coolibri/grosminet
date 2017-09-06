@@ -22,3 +22,5 @@ new Vue({
     app: App
   }
 })
+
+export default Vue
