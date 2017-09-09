@@ -1,78 +1,57 @@
 <template>
+  <!-- App -->
   <div id="app">
-    <router-view></router-view>
+    <router-view id="mainView"></router-view>
+    <footer>Coolibri -
+      <router-link :to="{name:'about'}">about us</router-link>
+    </footer>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'app'
-  }
+  export default {}
 </script>
 
-<style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    height: 100%;
-  }
-
-  html,
+<style lang="less">
   body {
-    background: #000033;
-    width: 100vw;
-    height: 100vh;
+    border: 0;
     margin: 0;
     padding: 0;
   }
 
-  /** Ultra Light */
-  @font-face {
-    font-family: "San Francisco";
-    font-weight: 100;
-    src: url("/static/font/SanFranciscoText-Light.otf");
+  #app {
+    width: 100vw;
+    height: 100vh;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    & > footer {
+      border-top: 1px solid lightgrey;
+      flex: 5;
+    }
+
+    & > #mainView {
+      flex: 95;
+    }
   }
 
-  /** Thin */
-  @font-face {
-    font-family: "San Francisco";
-    font-weight: 200;
-    src: url("/static/font/SanFranciscoText-Light.otf");
+  .slide-fade-enter-active {
+    transition: all .3s ease;
   }
 
-  /** Regular */
-  @font-face {
-    font-family: "San Francisco";
-    font-weight: 400;
-    src: url("/static/font/SanFranciscoText-Regular.otf");
+  .slide-fade-leave-active {
+    display: none;
   }
 
-  /** Medium */
-  @font-face {
-    font-family: "San Francisco";
-    font-weight: 500;
-    src: url("/static/font/SanFranciscoText-Medium.otf");
-  }
-
-  /** Semi Bold */
-  @font-face {
-    font-family: "San Francisco";
-    font-weight: 600;
-    src: url("/static/font/SanFranciscoText-Semibold.otf");
-  }
-
-  /** Bold */
-  @font-face {
-    font-family: "San Francisco";
-    font-weight: 700;
-    src: url("/static/font/SanFranciscoText-Bold.otf");
-  }
-
-  * {
-    font-family: 'San Francisco', sans-serif;
-    font-weight: 700;
+  .slide-fade-enter
+    /* .slide-fade-leave-active below version 2.1.8 */
+  {
+    transform: translateX(10px);
+    opacity: 0;
   }
 </style>

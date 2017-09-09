@@ -1,28 +1,26 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import 'tether-shepherd/dist/css/shepherd-theme-arrows.css'
-import 'tether-shepherd/dist/css/shepherd-theme-dark.css'
 import Vue from 'vue'
-import App from './App'
-import router from './router'
-import VueI18n from 'vue-i18n'
-import lang from './lang/lang'
+import VueRouter from 'vue-router'
 
-Vue.config.productionTip = false
+import App from './App.vue'
+import routes from './routes/'
 
-Vue.use(VueI18n)
+Vue.use(VueRouter)
 
-const i18n = new VueI18n({
-  locale: 'en', // set locale
-  fallbackLocale: 'en',
-  messages: lang // set locale messages
-})
+const router = new VueRouter({routes})
 
 /* eslint-disable no-new */
+// Init App
 new Vue({
-  el: '#app',
   router,
-  i18n,
-  template: '<App/>',
-  components: {App}
+  el: '#app',
+  template: '<app/>',
+
+  // Register App Component
+  components: {
+    app: App
+  }
 })
+
+export default Vue
