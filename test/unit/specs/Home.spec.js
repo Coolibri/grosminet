@@ -9,8 +9,8 @@ describe('Home Component', () => {
     it('should contain the eccolo logo', () => {
       const img = wrapper.find('img')[0]
 
-      expect(img.hasAttribute('src', 'static/eccolo-logo.png'))
-        .to.equal(true)
+      expect(img.getAttribute('src'))
+        .to.equal('static/img/eccolo-logo.png')
     })
 
     it('should contain a link to start game', () => {
