@@ -8,9 +8,8 @@ describe('Home Component', () => {
     const wrapper = mount(HomeComp, {router})
     it('should contain the eccolo logo', () => {
       const img = wrapper.find('img')[0]
-
-      expect(img.getAttribute('src'))
-        .to.equal('static/img/eccolo-logo.png')
+      expect(img.hasAttribute('src', 'static/img/eccolo-logo.png'))
+        .to.equal(true)
     })
 
     it('should contain a link to start game', () => {
