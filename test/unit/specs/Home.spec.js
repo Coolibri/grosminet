@@ -9,7 +9,7 @@ describe('Home Component', () => {
     it('should contain the eccolo logo', () => {
       const img = wrapper.find('img')[0]
 
-      expect(img.hasAttribute('src', 'static/eccolo-logo.png'))
+      expect(img.hasAttribute('src', 'static/img/eccolo-logo.png'))
         .to.equal(true)
     })
 
